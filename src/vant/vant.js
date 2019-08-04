@@ -13,7 +13,8 @@ import {
     Lazyload,
 
     Row,
-    Col
+    Col,
+
 } from 'vant';
 
 

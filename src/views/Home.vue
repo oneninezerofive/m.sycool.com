@@ -62,7 +62,7 @@
     <div class="staging_box" v-for="(item,index) in installmentall" :key="index">
       <div class="stag">
         <div class="stag_img">
-          <img src alt />
+          <img :src="item.img" alt />
         </div>
         <div class="stag_font">
           <h3 v-text="item.title">免息1313</h3>
@@ -71,12 +71,48 @@
         </div>
       </div>
     </div>
+    <!-- 猜我喜欢 -->
+    <div class="mylike">
+      <h2>猜你喜欢</h2>
+      <ul>
+        <li>
+          <div class="mylike_img">
+            <img src alt />
+          </div>
+          <div class="mylike_font">
+            <h3></h3>
+            <p class="title"></p>
+            <p class="price">
+              <span class="d_price"></span>
+              <span class="d_icon"></span>
+            </p>
+            <p class="del_price"></p>
+            <p class="name"></p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- 底部按钮 -->
+    <div class="foot_btn">
+      <ul>
+        <li
+          v-for="(item,index) in foot"
+          :key="index"
+          @click="active(index)"
+          :class="{active:index == num}"
+        >
+          <i class="iconfont" :class="item.icon"></i>
+          <span v-text="item.font"></span>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import '../css/home.css'
+import '../lib/iconfont/iconfont.css'
 
 export default {
   name: 'home',
@@ -94,12 +130,38 @@ export default {
       good: [],
       popularity: [],
       installmentall: [],
+      imgurlall: [],
+
+      foot: [{
+        icon: 'icon-shouye',
+        font: '首页'
+      }, {
+        icon: 'icon-pinpai',
+        font: '品牌'
+      }, {
+        icon: 'icon-fenlei',
+        font: '分类'
+      }, {
+        icon: 'icon-gouwudai',
+        font: '购物袋'
+      }, {
+        icon: 'icon-wode-copy',
+        font: '我的'
+      }],
+      num: 0
+
     }
   },
   methods: {
     search() {
       this.$router.push({
         name: 'search'
+      })
+    },
+    active(index) {
+      this.num = index
+      this.$router.push({
+        name: `home${index}`
       })
     }
   },
@@ -109,8 +171,7 @@ export default {
 
   async created() {
     let playlist = await this.$axios.post('http://10.3.132.227:12345/home/floors');
-
-    console.log(playlist.data[0].floors);
+    console.log(playlist);
     //轮播图数据
     this.playlist = playlist.data[0].floors[0].list;
     var images = [];
@@ -140,7 +201,11 @@ export default {
     this.installment1 = playlist.data[0].floors[33].list[1];
     this.installment2 = playlist.data[0].floors[34].list[1];
     this.installmentall.push(this.installment, this.installment1, this.installment2)
-    // console.log(installmentall)
+
+    //猜你喜欢数据
+    this.mylike
+
+
   }
 
 }

@@ -240,3 +240,147 @@ img {
     display: block;
     text-decoration: none;
 }
+
+.mylike {
+    width: 100%;
+    padding-top: .53333rem;
+}
+
+.mylike h2 {
+    padding: 0 .4rem .54667rem;
+    font-size: .50667rem;
+    line-height: .70667rem;
+    font-weight: 700;
+}
+
+.mylike ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.mylike ul li {
+    width: 48%;
+    margin-bottom: .8rem;
+    border: 1px solid#ccc
+}
+
+.mylike ul li .mylike_img {
+    width: 100%;
+    height: 4.98667rem;
+    margin-bottom: .66667rem;
+}
+
+.mylike ul li .mylike_font {
+    padding: 0 .4rem;
+    margin-bottom: .8rem;
+}
+
+.mylike ul li .mylike_font h3 {
+    margin-bottom: .10667rem;
+    font-family: Futura-Medium;
+    font-size: .32rem;
+    line-height: .42667rem;
+    font-weight: 700;
+}
+
+.mylike ul li .mylike_font .title {
+    width: 100%;
+    margin-bottom: .26667rem;
+    font-size: .32rem;
+    font-family: PingFangSC-Light;
+    line-height: .44rem;
+    display: -webkit-box;
+    overflow: hidden;
+}
+
+.mylike ul li .mylike_font .price {
+    margin-bottom: .05333rem;
+    height: .64rem;
+    line-height: .64rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #000b0b;
+    font-family: Futura-Medium;
+    font-size: .45333rem;
+}
+
+.mylike ul li .mylike_font .price .d_price {
+    margin-right: .13333rem;
+    font-family: PingFangSC-Medium;
+    font-size: .45333rem;
+    line-height: .64rem;
+}
+
+.mylike ul li .mylike_font .price .d_icon {
+    padding: 0 .08rem;
+    background-color: #f8a120;
+    font-size: .26667rem;
+    line-height: .4rem;
+    text-align: center;
+    color: #fff;
+}
+
+.mylike ul li .mylike_font .del_price {
+    height: .42667rem;
+    margin-bottom: .18667rem;
+    font-size: .32rem;
+    line-height: .42667rem;
+    color: #ccc;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mylike ul li .mylike_font .name {
+    display: flex;
+    align-items: center;
+    height: .44rem;
+    margin-top: .18667rem;
+    line-height: .44rem;
+    color: #8b572a;
+    font-family: PingFangSC-Light;
+    font-size: .32rem;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.foot_btn {
+    flex: 0 0 1.30667rem;
+    width: 100%;
+    max-width: 10rem;
+    z-index: 10;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+}
+
+.foot_btn ul {
+    width: 100%;
+    display: flex;
+    padding: .1rem 0
+}
+
+.foot_btn ul li {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 1.3rem;
+}
+
+.foot_btn ul li i {
+    font-size: .67333rem;
+    margin-bottom: .1rem
+}
+
+.foot_btn ul li span {
+    line-height: .4rem;
+}
+
+.foot_btn ul .active {
+    color: orangered;
+}
