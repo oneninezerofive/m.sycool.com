@@ -1,10 +1,8 @@
-.clearfix::after {
-    content: '';
-    display: block;
-    height: 0;
-    overflow: hidden;
-    visibility: hidden;
-    clear: both;
+.van-search {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
 }
 
 .van-swipe {
@@ -12,6 +10,7 @@
     width: 100%;
     position: relative;
     background: #fff;
+    margin-top: 1.333333rem
 }
 
 img {
@@ -244,6 +243,8 @@ img {
 .mylike {
     width: 100%;
     padding-top: .53333rem;
+    background: #fff;
+    margin-bottom: .533333rem;
 }
 
 .mylike h2 {
@@ -263,7 +264,6 @@ img {
 .mylike ul li {
     width: 48%;
     margin-bottom: .8rem;
-    border: 1px solid#ccc
 }
 
 .mylike ul li .mylike_img {
@@ -292,6 +292,8 @@ img {
     font-family: PingFangSC-Light;
     line-height: .44rem;
     display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
     overflow: hidden;
 }
 
@@ -332,6 +334,7 @@ img {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-decoration: line-through;
 }
 
 .mylike ul li .mylike_font .name {

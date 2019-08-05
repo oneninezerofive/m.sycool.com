@@ -10,6 +10,12 @@ Vue.prototype.$axios = axios
 //移动端px转rem
 import './lib/rem'
 
+//全局css
+import './css/index.css'
+
+//引入iconfont
+import './lib/iconfont/iconfont.css'
+
 
 Vue.config.productionTip = false
 

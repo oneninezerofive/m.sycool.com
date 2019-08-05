@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- 搜索框 -->
-    <van-search placeholder="七夕首饰提前准备 预约浓情蜜意" v-model="value" @click="search" />
+    <van-search placeholder="七夕首饰提前准备 预约浓情蜜意" v-model="value" @click="search" :fixed="true" />
     <!-- 轮播图 -->
     <van-swipe :autoplay="3000">
       <van-swipe-item v-for="(image, index) in images" :key="index">
@@ -75,19 +75,19 @@
     <div class="mylike">
       <h2>猜你喜欢</h2>
       <ul>
-        <li>
+        <li v-for="(item,index) in mylike" :key="index">
           <div class="mylike_img">
-            <img src alt />
+            <img :src="item.img" alt />
           </div>
           <div class="mylike_font">
-            <h3></h3>
-            <p class="title"></p>
+            <h3 v-text="item.title"></h3>
+            <p class="title" v-text="item.content"></p>
             <p class="price">
-              <span class="d_price"></span>
-              <span class="d_icon"></span>
+              <span class="d_price" v-text="`￥${item.price}`"></span>
+              <span class="d_icon" v-text="item.remember"></span>
             </p>
-            <p class="del_price"></p>
-            <p class="name"></p>
+            <p class="del_price" v-text="`￥${item.oldprice}`"></p>
+            <p class="name">自营</p>
           </div>
         </li>
       </ul>
@@ -111,9 +111,6 @@
 
 <script>
 // @ is an alias to /src
-import '../css/home.css'
-import '../lib/iconfont/iconfont.css'
-
 export default {
   name: 'home',
   data() {
@@ -148,7 +145,8 @@ export default {
         icon: 'icon-wode-copy',
         font: '我的'
       }],
-      num: 0
+      num: 0,
+      mylike: []
 
     }
   },
@@ -170,8 +168,8 @@ export default {
   },
 
   async created() {
-    let playlist = await this.$axios.post('http://10.3.132.227:12345/home/floors');
-    console.log(playlist);
+    let playlist = await this.$axios('http://10.3.132.227:12345/home/floors');
+    // console.log(playlist);
     //轮播图数据
     this.playlist = playlist.data[0].floors[0].list;
     var images = [];
@@ -203,12 +201,15 @@ export default {
     this.installmentall.push(this.installment, this.installment1, this.installment2)
 
     //猜你喜欢数据
-    this.mylike
-
-
+    let mylike = await this.$axios('https://www.easy-mock.com/mock/5d40092bfd74df5e8c45e490/list/imgurl');
+    this.mylike = mylike.data
   }
-
 }
 </script>
+
+
+<style scoped src="../css/home.css" />
+
+
 
 
