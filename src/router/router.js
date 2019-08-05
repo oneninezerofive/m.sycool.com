@@ -8,6 +8,7 @@ const classify = () => import('../views/Classify.vue')
 const shoppingbag = () => import('../views/ShoppingBag.vue')
 const mine = () => import('../views/Mine.vue')
 const login = () => import('../views/Login.vue')
+const listpage=()=>import('../views/Listpage.vue')
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ export default new Router({
       path: '/login',
       name: 'home5',
       component: login
+    },
+    {//列表页路由
+      path: '/listpage',
+      name: 'listpage',
+      component: listpage
     }
   ]
 })
