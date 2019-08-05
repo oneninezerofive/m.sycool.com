@@ -1,0 +1,166 @@
+#head {
+    height: 1.333333rem;
+    background-color: #fff;
+    display: flex;
+    position: relative;
+    z-index: 99999;
+}
+
+#head>div {
+    text-align: center;
+    line-height: 1.3333333rem;
+    width: 1.6rem
+}
+
+#head .back i {
+    font-size: 0.6rem;
+    font-style: normal;
+}
+
+#head h3 {
+    flex: 1;
+    overflow: hidden;
+    font-size: .45rem;
+    z-index: 2;
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.4rem;
+}
+
+#head .nav {
+    position: relative;
+}
+
+#head .nav em {
+    font-size: .56rem;
+}
+
+#head .nav .nav_list {
+    /* overflow: hidden; */
+    width: 3.866667rem;
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    top: 1.4rem;
+    /* transform: translateY(-100%);
+    transition: all .25s ease; */
+    z-index: 8888;
+}
+
+#head .nav .nav_list li {
+    color: #000;
+    line-height: 1.466667rem;
+    position: relative;
+    font-size: .373333rem;
+    text-align: left;
+    width: 100%;
+    height: 1.466667rem;
+    border-bottom: .013333rem solid #ccc;
+}
+
+#head .nav .nav_list li:nth-child(5) {
+    border: none;
+}
+
+#head .nav .nav_list li span:first-child {
+    padding: 0 .265rem 0 0.533333rem;
+    font-size: 0.56rem;
+    vertical-align: middle;
+}
+
+#head .nav .nav_list li span:last-child {
+    font-size: 0.4rem;
+    vertical-align: middle;
+}
+
+.title {
+    width: 100%;
+    background: #fff;
+    box-sizing: border-box;
+    padding: .6rem .666667rem;
+    font-size: .56rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.shop_list {
+    width: 92%;
+    margin: 0 auto;
+}
+
+.shop_list ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.shop_list ul li {
+    width: 49%;
+    margin-bottom: 0.1333333rem;
+}
+
+.shop_list ul li .shop_img {
+    height: 5.503333rem;
+    overflow: hidden;
+}
+
+.shop_list ul li .shop_font {
+    background: #F7F7F7;
+    height: 2.266667rem;
+}
+
+.shop_list ul li .shop_font p {
+    font-size: 0.4rem;
+    padding-top: 0.213333rem;
+    width: 92%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: .266667rem;
+}
+
+.shop_list ul li .shop_font div {
+    width: 2.133333rem;
+    height: .533333rem;
+    border: 1px solid #000;
+    line-height: .533333rem;
+    color: #000;
+    font-size: 0.32rem;
+    text-align: center;
+    margin: auto;
+}
+
+.shop_list3 {
+    width: 92%;
+    margin: 0 auto;
+}
+
+.shop_list3 ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.shop_list3 ul li {
+    width: 33%;
+    margin-bottom: 0.1333333rem;
+}
+
+.shop_list3 ul li .shop_img {
+    height: 3.04rem;
+    overflow: hidden;
+}
+
+.shop_list3 ul li .shop_font {
+    background: #F7F7F7;
+}
+
+.shop_list3 ul li .shop_font p {
+    font-size: 0.4rem;
+    padding-top: 0.213333rem;
+    width: 92%;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: .266667rem;
+}

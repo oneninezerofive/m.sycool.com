@@ -1,10 +1,12 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-view/>
-    </div>
-    
+    <router-view></router-view>
   </div>
 </template>
+<style scoped>
+#app {
+  background: #f5f5f5;
+}
+</style>
 
 
