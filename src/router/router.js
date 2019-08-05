@@ -7,6 +7,7 @@ const brand = () => import('../views/Brand.vue')
 const classify = () => import('../views/Classify.vue')
 const shoppingbag = () => import('../views/ShoppingBag.vue')
 const mine = () => import('../views/Mine.vue')
+const login = () => import('../views/Login.vue')
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/mine',
       name: 'home4',
       component: mine
+    },
+    {
+      path: '/login',
+      name: 'home5',
+      component: login
     }
   ]
 })
