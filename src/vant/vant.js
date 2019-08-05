@@ -14,9 +14,13 @@ import {
 
     Row,
     Col,
+    //品牌页头部导航
+    NavBar,
+
+    IndexBar,
+    IndexAnchor
 
 } from 'vant';
-
 
 
 
@@ -26,4 +30,6 @@ export default () => {
     Vue.use(Swipe).use(SwipeItem)
     Vue.use(Lazyload)
     Vue.use(Row).use(Col)
+    Vue.use(NavBar)
+    Vue.use(IndexBar).use(IndexAnchor)
 }
