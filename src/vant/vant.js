@@ -20,11 +20,24 @@ import {
 	Field,
 	// 按钮
 	Button,
-	// 宫格
-	Grid,
-	GridItem
+	// 下拉
+	DropdownMenu,
+	DropdownItem,
+	// 购物车底部
+	GoodsAction,
+	GoodsActionIcon,
+	GoodsActionButton,
+	IndexBar,
+	IndexAnchor,
+	// lcon图标
+	Icon,
+	// 弹出层
+	Popup,
+	// 标签
+	Tab,
+	Tabs,
+	Stepper
 } from 'vant';
-
 
 
 
@@ -35,7 +48,16 @@ export default () => {
 		.use(Lazyload)
 		.use(Row).use(Col)
 		.use(NavBar)
-		.use(Field)
+		.use(IndexBar).use(IndexAnchor)
 		.use(Button)
-		.use(Grid).use(GridItem)
+		.use(DropdownMenu).use(DropdownItem)
+		.use(Field)
+		.use(GoodsAction)
+		.use(GoodsActionIcon)
+		.use(GoodsActionButton)
+		.use(NavBar)
+		.use(Icon)
+		.use(Popup)
+		.use(Tab).use(Tabs)
+		.use(Stepper)
 }
