@@ -110,7 +110,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 export default {
   name: 'home',
   data() {
@@ -204,7 +203,7 @@ export default {
     let mylike = await this.$axios('https://www.easy-mock.com/mock/5d40092bfd74df5e8c45e490/list/imgurl');
     this.mylike = mylike.data
   }
-}
+};
 </script>
 
 

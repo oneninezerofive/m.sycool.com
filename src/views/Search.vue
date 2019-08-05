@@ -1,5 +1,14 @@
 <template>
   <div class="about">
-    <h1>搜索页</h1>
+    <Shopping/>
   </div>
 </template>
+<script>
+import Shopping from "@/components/Shopping.vue";
+export default {
+  name: "about",
+  components: {
+    Shopping
+  }
+};
+</script>
