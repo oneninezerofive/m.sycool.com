@@ -24,7 +24,13 @@
         <dt v-text="`${item.name}${item.enName}`"></dt>
         <dd>
           <ul>
-            <li v-for="(i,index) in item.child" :key="index" v-text="i.name" @click="gorem"></li>
+            <li
+              v-for="(i,index) in item.child"
+              :key="index"
+              v-text="i.name"
+              @click="gorem(1,i.name)"
+              :data-name="i.name"
+            ></li>
           </ul>
         </dd>
       </dl>
@@ -33,7 +39,12 @@
     <div class="remember_box" v-show="!isok" v-for="(item,index) in remember" :key="index">
       <div class="rem_num" v-text="item.cap"></div>
       <ul class="name_a">
-        <li v-for="(i,index) in item.list" :key="index" @click="gorem">
+        <li
+          v-for="(i,index) in item.list"
+          :key="index"
+          :data-name="i.ename"
+          @click="gorem(2,i.ename)"
+        >
           <span v-text="i.cname"></span>
           <span v-text="i.ename"></span>
         </li>
@@ -75,10 +86,13 @@ export default {
         this.isok = true;
       }
     },
-    gorem() {
+    gorem(cla, name) {
       this.$router.push({
         name: 'listpage',
-        // params: { id: id }
+        params: {
+          cla: cla,
+          name: name
+        }
       })
     }
   },

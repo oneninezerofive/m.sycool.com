@@ -22,7 +22,12 @@
     <!-- 商品信息盒子一排2 -->
     <div class="shop_list">
       <ul>
-        <li v-for="(item,index) in shop" :key="index" :data-id="item._id" @click="golist(item._id)">
+        <li
+          v-for="(item,index) in shop"
+          :key="index"
+          :data-name="item.des"
+          @click="golist(item.des)"
+        >
           <div class="shop_img">
             <img :src="item.img" alt />
           </div>
@@ -39,8 +44,8 @@
         <li
           v-for="(item,index) in shopthree"
           :key="index"
-          :data-id="item._id"
-          @click="golist(item._id)"
+          :data-name="item.des"
+          @click="golist(item.des)"
         >
           <div class="shop_img">
             <img :src="item.img" alt />
@@ -96,10 +101,10 @@ export default {
         name: `home${index}`
       })
     },
-    golist(id) {
+    golist(name) {
       this.$router.push({
         name: 'listpage',
-        params: { id: id }
+        params: { name: name }
       })
     }
   },
