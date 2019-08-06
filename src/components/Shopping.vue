@@ -31,10 +31,10 @@
     <!-- 轮播 -->
     <van-swipe indicator-color="white">
       <van-swipe-item v-for="(k,index) in detailsImg" :key="index">
-        <img :src="k.url" alt="">
+        <img :src="k.url" alt />
       </van-swipe-item>
     </van-swipe>
-    
+
     <!-- 选项 -->
     <div class="option">
       <div>
@@ -51,32 +51,25 @@
       <!-- <van-goods-action-icon
           icon="shop-o"
           text="店铺"
-        /> -->
+      />-->
       <van-goods-action-button type="warning" text="加入购物车" @click="showPopup" />
 
       <van-popup v-model="show" position="bottom" :style="{ height: '90%' }">
-
         <!-- 底部 -->
         <van-tabs v-model="active">
-
           <van-tab title="标签">内容 1</van-tab>
           <van-tab title="标签">内容 2</van-tab>
           <van-tab title="标签">内容 3</van-tab>
           <van-tab title="标签">内容 4</van-tab>
         </van-tabs>
         <div class="textColor" style="font-size: 14px ;font-weight: bold; ">颜色</div>
-        <p style="font-size: 14px ;font-weight: bold; ">数量
-          
-        </p>
+        <p style="font-size: 14px ;font-weight: bold; ">数量</p>
         <van-stepper v-model="value" />
         <div class="bottomCart">加入购物车</div>
-
       </van-popup>
       <van-goods-action-button type="danger" text="立即购买" />
     </van-goods-action>
     <!-- 商品规格 -->
-    
-
   </div>
 </template>
 <script>
@@ -124,11 +117,14 @@ export default {
   }
 };
 </script>
-<style src="../css/sk.css">
+
+<style scoped src="../css/sk.css" />
+
 
 </style>
-<style>
 
+
+<style scoped >
 /*导航*/
 .navigation {
   width: 100%;
@@ -175,12 +171,11 @@ export default {
 }
 
 /*轮播图*/
-.van-swipe-item{
-text-align: center;
+.van-swipe-item {
+  text-align: center;
 }
 .van-swipe-item img {
-  width: 320px;
-  
+  width: 100%;
 }
 .van-swipe__indicator {
   background: #666;
@@ -242,7 +237,6 @@ text-align: center;
   position: absolute;
   top: 150px;
   left: 12px;
-
 }
 
 .van-ellipsis {
@@ -250,7 +244,6 @@ text-align: center;
   width: 40px;
   height: 20px;
   line-height: 20px;
- 
 }
 .van-tabs__line {
   z-index: 0;
@@ -275,10 +268,10 @@ text-align: center;
   top: 230px;
   left: 18px;
 }
-.van-tab{
+.van-tab {
   font-size: 12px;
 }
-.van-stepper{
+.van-stepper {
   position: absolute;
   top: 220px;
   left: 200px;
@@ -286,18 +279,16 @@ text-align: center;
   height: 25px;
   width: 90px;
   line-height: 25px;
-  
 }
-.van-stepper__input{
+.van-stepper__input {
   margin: 0;
   height: 20px;
 }
-.van-stepper__plus{
+.van-stepper__plus {
   width: 28px;
   height: 0;
 }
-.van-stepper__minus{
+.van-stepper__minus {
   height: 0px;
 }
 </style>
-

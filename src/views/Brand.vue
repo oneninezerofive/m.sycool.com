@@ -22,12 +22,12 @@
     <!-- 商品信息盒子一排2 -->
     <div class="shop_list">
       <ul>
-        <li v-for="(item,index) in shop" :key="index">
+        <li v-for="(item,index) in shop" :key="index" :data-id="item._id" @click="golist(item._id)">
           <div class="shop_img">
             <img :src="item.img" alt />
           </div>
           <div class="shop_font">
-            <p v-text="item.des">woshinibaba</p>
+            <p v-text="item.des"></p>
             <div>查看更多</div>
           </div>
         </li>
@@ -36,12 +36,17 @@
     <!-- 商品信息盒子一排3 -->
     <div class="shop_list3">
       <ul>
-        <li>
+        <li
+          v-for="(item,index) in shopthree"
+          :key="index"
+          :data-id="item._id"
+          @click="golist(item._id)"
+        >
           <div class="shop_img">
-            <img src alt />
+            <img :src="item.img" alt />
           </div>
           <div class="shop_font">
-            <p>sdadada</p>
+            <p v-text="item.des"></p>
           </div>
         </li>
       </ul>
@@ -72,7 +77,8 @@ export default {
         font: '我的'
       }],
       num: 0,
-      shop: []
+      shop: [],
+      shopthree: []
     }
   },
   methods: {
@@ -89,11 +95,20 @@ export default {
       this.$router.push({
         name: `home${index}`
       })
+    },
+    golist(id) {
+      this.$router.push({
+        name: 'listpage',
+        params: { id: id }
+      })
     }
   },
   async created() {
     let shop = await this.$axios('http://10.3.132.227:12345/brands/list');
-    this.shop = shop.data
+    //一排2图数据
+    this.shop = shop.data.slice(0, 56);
+    //一排三图数据
+    this.shopthree = shop.data.slice(56, 110);
   }
 }
 </script>

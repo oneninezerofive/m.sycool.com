@@ -2,13 +2,15 @@
   <div>
     <!-- 搜索 -->
     <form action="/">
-      <van-search v-model="value" placeholder="请输入搜索关键词" show-action @search="onSearch" @cancel="onCancel" />
+      <van-search
+        v-model="value"
+        placeholder="请输入搜索关键词"
+        show-action
+        @search="onSearch"
+        @cancel="onCancel"
+      />
     </form>
-
-    
-
   </div>
-
 </template>
 <script>
 export default {
@@ -24,15 +26,14 @@ export default {
   // 事件
   methods: {
     //回车和搜索触发
-    onSearch() {},
+    onSearch() { },
     //取消触发
-    onCancel() {},
-    active() {}
+    onCancel() { },
+    active() { }
   }
 };
 </script>
-<style>
-
+<style scoped>
 .van-button {
   padding: 0 10px;
 }
@@ -48,8 +49,7 @@ export default {
   font-size: 0.4rem;
   line-height: 0.88rem;
 }
-
-
 </style>
+
 
 

@@ -24,7 +24,7 @@
         <dt v-text="`${item.name}${item.enName}`"></dt>
         <dd>
           <ul>
-            <li v-for="(i,index) in item.child" :key="index" v-text="i.name"></li>
+            <li v-for="(i,index) in item.child" :key="index" v-text="i.name" @click="gorem"></li>
           </ul>
         </dd>
       </dl>
@@ -33,7 +33,7 @@
     <div class="remember_box" v-show="!isok" v-for="(item,index) in remember" :key="index">
       <div class="rem_num" v-text="item.cap"></div>
       <ul class="name_a">
-        <li v-for="(i,index) in item.list" :key="index">
+        <li v-for="(i,index) in item.list" :key="index" @click="gorem">
           <span v-text="i.cname"></span>
           <span v-text="i.ename"></span>
         </li>
@@ -74,17 +74,24 @@ export default {
       } else {
         this.isok = true;
       }
+    },
+    gorem() {
+      this.$router.push({
+        name: 'listpage',
+        // params: { id: id }
+      })
     }
   },
   async created() {
     //分类接口
     let list = await this.$axios('http://10.3.132.227:12345/categorys/list');
     this.list = list.data[0].categorys;
+    // console.log(list.data[0].categorys)
 
     //品牌接口
     let remrmber = await this.$axios('http://10.3.132.227:12345/brand/list');
     this.remember = remrmber.data[0].result.brands;
-    console.log(remrmber.data[0].result.brands);
+    // console.log(remrmber.data[0].result.brands);
   }
 }
 </script>

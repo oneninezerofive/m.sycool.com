@@ -14,6 +14,7 @@ const listpage = () => import('../views/Listpage.vue')
 Vue.use(Router)
 
 export default new Router({
+  // mode: 'history',
   routes: [{
       path: '/',
       name: 'home0',
@@ -50,7 +51,7 @@ export default new Router({
       component: login
     },
     { //列表页路由
-      path: '/listpage',
+      path: '/listpage/:id',
       name: 'listpage',
       component: listpage
     },
