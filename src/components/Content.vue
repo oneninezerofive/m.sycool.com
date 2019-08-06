@@ -1,11 +1,10 @@
 <template>
   <div>
-    <!-- 下拉菜单 -->
-    
+  
     <!-- 内容 -->
     <div>
       <ul data-v-61656187="" class="listGoods">
-        <li data-v-61656187="" class="listGoods-item" @click="jumpParticulars" v-for="(k,index) in listHas" :key="index" >
+        <li data-v-61656187="" class="listGoods-item" @click="jumpParticulars" v-for="(k,index) in listHas" :key="index">
           <a data-v-61656187="" href="#">
             <div data-v-61656187="" class="listGoods-imgBox">
               <div data-v-61656187="" class="listGoods-imgWrp"><img :src="k.imgUrl" style="display: block;" width="100%" height="100%"></div>
@@ -31,11 +30,10 @@
             </div>
           </a>
         </li>
-        
+
       </ul>
     </div>
-    <!-- 购物车选规格 -->
-    
+
   </div>
 
 </template>
@@ -43,15 +41,14 @@
 export default {
   data() {
     return {
-      listHas: [],
-  // v-for="(k,index) in listHas" :key="index"
+      listHas: []
     };
   },
   methods: {
-    jumpParticulars(){
+    jumpParticulars() {
       this.$router.push({
-        name:'search'
-      })
+        name: "search"
+      });
     }
   },
   async created() {
@@ -59,12 +56,8 @@ export default {
       "https://www.easy-mock.com/mock/5d4699307e2c484eee66fda1/suku/list"
     );
     this.listHas = listHas.data.productList;
-    // console.log(this.listHas);
-    
-    
-    // this.listHas = data.data.filterList;
-    //  console.log(listHas);
   }
 };
 </script>
-<style  src="../css/sk.css"></style>
+<style  scoped src="../css/sk.css" />
+

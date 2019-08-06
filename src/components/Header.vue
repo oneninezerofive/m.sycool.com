@@ -4,8 +4,18 @@
     <form action="/">
       <van-search v-model="value" placeholder="请输入搜索关键词" show-action @search="onSearch" @cancel="onCancel" />
     </form>
-
-    
+    <!-- 下拉菜单 -->
+    <van-dropdown-menu>
+      <van-dropdown-item v-model="value1" :options="option1" />
+      <div class="van-dropdown-menu__item box1">
+        销量
+      </div>
+      <div class="van-dropdown-menu__item box2">价格</div>
+      <div class="van-dropdown-menu__item box3">折扣</div>
+      
+      
+      
+    </van-dropdown-menu>
 
   </div>
 
@@ -17,7 +27,7 @@ export default {
       value: "",
       value1: 0,
       value2: "a",
-      option1: [{ text: "全部", value: 0 }, { text: "新款商品", value: 1 }],
+      option1: [{ text: "综合", value: 0 }, { text: "新款商品", value: 1 }],
       selected: true
     };
   },
@@ -31,25 +41,18 @@ export default {
   }
 };
 </script>
-<style>
+<style >
 
-.van-button {
-  padding: 0 10px;
-}
 .van-dropdown-menu__item {
-  width: 60px;
+  width: 80px;
   height: 27px;
-  font-size: 12px;
+  font-size: 15px;
+  border: 1px solid #999;
+  margin-right: 5px;
+  margin-left: 5px;
 }
-.van-dropdown-menu__title::after {
-  top: 10px;
-}
-.van-ellipsis {
-  font-size: 0.4rem;
-  line-height: 0.88rem;
-}
-
 
 </style>
+
 
 

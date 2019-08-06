@@ -1,4 +1,5 @@
 <template>
+
   <div>
     <!-- 购物页 -->
     <!-- 顶部 -->
@@ -30,19 +31,17 @@
 
     <!-- 轮播 -->
     <van-swipe indicator-color="white">
-      <van-swipe-item v-for="(k,index) in detailsImg" :key="index">
+      <van-swipe-item v-for="(k,idx) in detailsImg" :key="idx" v-bind:idx="idx">
         <img :src="k.url" alt="">
       </van-swipe-item>
     </van-swipe>
-    
     <!-- 选项 -->
     <div class="option">
       <div>
-        <i>11</i>
-        <i>22</i>
-        <i>33</i>
+        <i v-for="(i,idx) in nwe" :key="idx" @click="qiehuan(idx)" >{{i.bar}}</i>
       </div>
     </div>
+    <!-- 内容 -->
 
     <!-- 购物车底部 -->
     <van-goods-action>
@@ -66,7 +65,7 @@
         </van-tabs>
         <div class="textColor" style="font-size: 14px ;font-weight: bold; ">颜色</div>
         <p style="font-size: 14px ;font-weight: bold; ">数量
-          
+
         </p>
         <van-stepper v-model="value" />
         <div class="bottomCart">加入购物车</div>
@@ -75,7 +74,6 @@
       <van-goods-action-button type="danger" text="立即购买" />
     </van-goods-action>
     <!-- 商品规格 -->
-    
 
   </div>
 </template>
@@ -103,18 +101,32 @@ export default {
         { title: "详情" },
         { title: "推荐" }
       ],
+      nwe:[{
+        bar:'1',
+      },{
+        bar:'2',
+      },{
+        bar:'3'
+      }],
       // 商品导航
       hideNav: false,
       Switchbezel: true,
       show: false,
       active: 2,
-      value: 1
+      value: 1,
+      activeidx: 0
     };
   },
   methods: {
     //导航
     navhideNav() {
       this.hideNav = !this.hideNav;
+    },
+    // 切换
+    qiehuan(){
+      // this.idx = index;
+      // console.log(this.index);
+      
     },
 
     // 弹出层
@@ -124,11 +136,16 @@ export default {
   }
 };
 </script>
-<style src="../css/sk.css">
 
-</style>
+<style scoped src="../css/depage.css"></style>
+
+
+
+
 <style>
-
+i {
+  font-style: normal;
+}
 /*导航*/
 .navigation {
   width: 100%;
@@ -175,12 +192,11 @@ export default {
 }
 
 /*轮播图*/
-.van-swipe-item{
-text-align: center;
+.van-swipe-item {
+  text-align: center;
 }
 .van-swipe-item img {
   width: 320px;
-  
 }
 .van-swipe__indicator {
   background: #666;
@@ -242,7 +258,6 @@ text-align: center;
   position: absolute;
   top: 150px;
   left: 12px;
-
 }
 
 .van-ellipsis {
@@ -250,7 +265,6 @@ text-align: center;
   width: 40px;
   height: 20px;
   line-height: 20px;
- 
 }
 .van-tabs__line {
   z-index: 0;
@@ -275,10 +289,10 @@ text-align: center;
   top: 230px;
   left: 18px;
 }
-.van-tab{
+.van-tab {
   font-size: 12px;
 }
-.van-stepper{
+.van-stepper {
   position: absolute;
   top: 220px;
   left: 200px;
@@ -286,17 +300,16 @@ text-align: center;
   height: 25px;
   width: 90px;
   line-height: 25px;
-  
 }
-.van-stepper__input{
+.van-stepper__input {
   margin: 0;
   height: 20px;
 }
-.van-stepper__plus{
+.van-stepper__plus {
   width: 28px;
   height: 0;
 }
-.van-stepper__minus{
+.van-stepper__minus {
   height: 0px;
 }
 </style>
