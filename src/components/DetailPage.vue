@@ -1,6 +1,7 @@
 <template>
+
   <div>
-    <!-- 购物页 -->
+    <!-- 详情页 -->
     <!-- 顶部 -->
     <div class="navigation">
       <van-icon name="arrow-left" />
@@ -35,14 +36,14 @@
       </van-swipe-item>
     </van-swipe>
 
+
     <!-- 选项 -->
     <div class="option">
       <div>
-        <i>11</i>
-        <i>22</i>
-        <i>33</i>
+        <i v-for="(i,idx) in nwe" :key="idx" @click="qiehuan(idx)" >{{i.bar}}</i>
       </div>
     </div>
+    <!-- 内容 -->
 
     <!-- 购物车底部 -->
     <van-goods-action>
@@ -62,8 +63,9 @@
           <van-tab title="标签">内容 3</van-tab>
           <van-tab title="标签">内容 4</van-tab>
         </van-tabs>
-        <div class="textColor" style="font-size: 14px ;font-weight: bold; ">颜色</div>
+
         <p style="font-size: 14px ;font-weight: bold; ">数量</p>
+
         <van-stepper v-model="value" />
         <div class="bottomCart">加入购物车</div>
       </van-popup>
@@ -96,18 +98,32 @@ export default {
         { title: "详情" },
         { title: "推荐" }
       ],
+      nwe:[{
+        bar:'1',
+      },{
+        bar:'2',
+      },{
+        bar:'3'
+      }],
       // 商品导航
       hideNav: false,
       Switchbezel: true,
       show: false,
       active: 2,
-      value: 1
+      value: 1,
+      activeidx: 0
     };
   },
   methods: {
     //导航
     navhideNav() {
       this.hideNav = !this.hideNav;
+    },
+    // 切换
+    qiehuan(){
+      // this.idx = index;
+      // console.log(this.index);
+      
     },
 
     // 弹出层
@@ -118,6 +134,7 @@ export default {
 };
 </script>
 
+
 <style scoped src="../css/sk.css" />
 
 
@@ -125,6 +142,7 @@ export default {
 
 
 <style scoped >
+
 /*导航*/
 .navigation {
   width: 100%;
@@ -175,7 +193,9 @@ export default {
   text-align: center;
 }
 .van-swipe-item img {
+
   width: 100%;
+
 }
 .van-swipe__indicator {
   background: #666;

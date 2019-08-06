@@ -6,7 +6,7 @@ const search = () => import('../views/Searchval.vue')
 const brand = () => import('../views/Brand.vue')
 const classify = () => import('../views/Classify.vue')
 const shoppingbag = () => import('../views/ShoppingBag.vue')
-const shoppingcar = () => import('../views/ShoppingCar.vue') //购物车
+const detapages = () => import('../views/Detapages.vue') //详情页
 const mine = () => import('../views/Mine.vue')
 const login = () => import('../views/Login.vue')
 const listpage = () => import('../views/Listpage.vue')
@@ -55,10 +55,10 @@ export default new Router({
       name: 'listpage',
       component: listpage
     },
-    { //购物车详情页
-      path: '/shoppingcar',
-      name: 'shoppingcar',
-      component: shoppingcar
+    { //详情页
+      path: '/detapages',
+      name: 'ddetapages',
+      component: detapages
     },
 
     //重定向

@@ -1,4 +1,5 @@
 <template>
+
   <div style="background:#fff">
     <!-- 下拉菜单 -->
 
@@ -15,7 +16,7 @@
           <a data-v-61656187 href="#">
             <div data-v-61656187 class="listGoods-imgBox">
               <div data-v-61656187 class="listGoods-imgWrp">
-                <img :src="k.imgUrl" style="display: block;" width="100%" height="100%" />
+                <img :src="k.imgSrc" style="display: block;" width="100%" height="100%" />
               </div>
             </div>
             <div data-v-61656187 class="listGoods-info">
@@ -35,9 +36,9 @@
             </div>
           </a>
         </li>
+
       </ul>
     </div>
-    <!-- 购物车选规格 -->
   </div>
 </template>
 <script>
@@ -45,26 +46,23 @@ export default {
   data() {
     return {
       listHas: [],
-      // v-for="(k,index) in listHas" :key="index"
     };
   },
   methods: {
     jumpParticulars() {
       this.$router.push({
+
         name: 'shoppingcar'
       })
+
     }
   },
   async created() {
-    let listHas = await this.$axios(
-      "https://www.easy-mock.com/mock/5d4699307e2c484eee66fda1/suku/list"
+    let listHas = await this.$axios.get(
+      "http://10.3.132.227:12345/goods/brand?gName=voyagetime&skip=1"
     );
-    this.listHas = listHas.data.productList;
-    // console.log(this.listHas);
-
-
-    // this.listHas = data.data.filterList;
-    //  console.log(listHas);
+    this.listHas = listHas.data;
+    console.log(this.listHas);
   }
 };
 </script>
