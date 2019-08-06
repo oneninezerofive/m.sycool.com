@@ -1,8 +1,4 @@
 <template>
-	<!-- 作者：yyrSun
-	来源：CSDN
-	原文：https://blog.csdn.net/yyjourney/article/details/79072093
-	版权声明：本文为博主原创文章，转载请附上博文链接！ -->
 	<div class="s-canvas">
 		<canvas id="s-canvas" :width="contentWidth" :height="contentHeight"></canvas>
 	</div>

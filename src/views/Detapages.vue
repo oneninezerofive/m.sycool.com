@@ -2,15 +2,15 @@
 <template>
   <div class="about">
     <!-- 购物车详情页 -->
-    <Shopping />
+    <DetailPage />
   </div>
 </template>
 <script>
-import Shopping from "@/components/Shopping.vue";
+import DetailPage from "@/components/DetailPage.vue";
 export default {
   name: "about",
   components: {
-    Shopping
+    DetailPage
   }
 };
 </script>
