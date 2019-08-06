@@ -36,45 +36,103 @@
       </van-swipe-item>
     </van-swipe>
 
-
     <!-- 选项 -->
     <div class="option">
       <div>
-        <i v-for="(i,idx) in nwe" :key="idx" @click="qiehuan(idx)" >{{i.bar}}</i>
+        <i v-for="(i,idx) in nwe" :key="idx" @click="qiehuan(idx)">{{i.bar}}</i>
       </div>
     </div>
     <!-- 内容 -->
+    <div class="box">
+      <div class="price">￥10,107</div>
+      <div class="box1">开通会员立省¥203</div>
+      <h3>
+        <span>Louis Vuitton/路易威登</span>Alma BB 老花色/棋盘格 经典女士 斜挎小贝壳包 帆布/配皮 M53152/N41221 【预订商品 2-3周发货】</h3>
+      <!-- 遮罩假一赔十 -->
 
-    <!-- 购物车底部 -->
+      <!-- 商品信息 -->
+      <div class="border-bottom">
+        <h2 class="product-info-title">商品信息</h2>
+        <table class="product-info p">
+          <tbody>
+            <tr>
+              <td>商品编号</td>
+              <td class="select-text">41271689</td>
+            </tr>
+            <tr>
+              <td>开合方式</td>
+              <td class="select-text">拉链开合</td>
+            </tr>
+            <tr>
+              <td>底部结构</td>
+              <td class="select-text">包底有保护性的铆钉</td>
+            </tr>
+            <tr>
+              <td>尺寸</td>
+              <td class="select-text">23.5 x 17.5 x 11.5 cm (长 x 高 x 宽)</td>
+            </tr>
+            <tr>
+              <td>颜色</td>
+              <td class="select-text">棕色</td>
+            </tr>
+            <tr>
+              <td>产地</td>
+              <td class="select-text">法国</td>
+            </tr>
+            <tr>
+              <td>适用人群</td>
+              <td class="select-text">女士</td>
+            </tr>
+            <tr>
+              <td>材质</td>
+              <td class="select-text">帆布/配皮</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 商品详情 -->
+      <div class="p" style="height: 325px; margin-top: 5px;">
+        <img src="http://pic12.secooimg.com/imgextra/1/0/54/57/1Zc95N6938bcbbfacb41e59f6f4c59c92e414a.jpg">
+      </div>
+      <div class="p" style="height: 325px; margin-top: 5px;">
+        <img src="http://pic12.secooimg.com/imgextra/1/0/10/99/1Zc95Necc3554312ef43c0b1626c33119dc242.jpg">
+      </div>
+    </div>
+    <!-- 详情页底部 -->
     <van-goods-action>
       <van-goods-action-icon icon="chat-o" text="客服" />
-      <van-goods-action-icon info="5" icon="cart-o" text="购物袋" />
-      <!-- <van-goods-action-icon
-          icon="shop-o"
-          text="店铺"
-      />-->
+      <van-goods-action-icon info="" icon="cart-o" text="购物袋" />
+
       <van-goods-action-button type="warning" text="加入购物车" @click="showPopup" />
 
-      <van-popup v-model="show" position="bottom" :style="{ height: '90%' }">
+      <van-popup v-model="show" position="bottom" :style="{ height: '85%' }">
         <!-- 底部 -->
         <van-tabs v-model="active">
-          <van-tab title="标签">内容 1</van-tab>
-          <van-tab title="标签">内容 2</van-tab>
-          <van-tab title="标签">内容 3</van-tab>
-          <van-tab title="标签">内容 4</van-tab>
+          <div class="jiage">￥10,107</div>
+           <p style="font-size: 16px ;font-weight: bold; top:120px; ">颜色</p>
+          <van-tab title="颜色">
+            
+            <div class="tu1"><img src="http://pic12.secooimg.com/imgextra/1/0/54/57/1Zc95N6938bcbbfacb41e59f6f4c59c92e414a.jpg" alt=""></div>
+            </van-tab>
+          
+          <van-tab title="颜色">
+            <div class="tu2"><img src="http://pic12.secooimg.com/imgextra/1/0/10/99/1Zc95Necc3554312ef43c0b1626c33119dc242.jpg" alt=""></div>
+            </van-tab> 
         </van-tabs>
 
-        <p style="font-size: 14px ;font-weight: bold; ">数量</p>
+        <p style="font-size: 16px ;font-weight: bold; ">数量</p>
 
         <van-stepper v-model="value" />
-        <div class="bottomCart">加入购物车</div>
+        <div class="bottomCart" @click="cartPage">加入购物车</div>
       </van-popup>
       <van-goods-action-button type="danger" text="立即购买" />
     </van-goods-action>
     <!-- 商品规格 -->
+    
   </div>
 </template>
 <script>
+
 export default {
   data() {
     return {
@@ -98,13 +156,17 @@ export default {
         { title: "详情" },
         { title: "推荐" }
       ],
-      nwe:[{
-        bar:'1',
-      },{
-        bar:'2',
-      },{
-        bar:'3'
-      }],
+      nwe: [
+        {
+          bar: "1"
+        },
+        {
+          bar: "2"
+        },
+        {
+          bar: "3"
+        }
+      ],
       // 商品导航
       hideNav: false,
       Switchbezel: true,
@@ -120,197 +182,27 @@ export default {
       this.hideNav = !this.hideNav;
     },
     // 切换
-    qiehuan(){
+    qiehuan() {
       // this.idx = index;
       // console.log(this.index);
-      
     },
 
     // 弹出层
     showPopup() {
       this.show = true;
+    },
+    //加入购物车
+    cartPage(){
+
     }
-  }
+  },
+ 
 };
 </script>
-
-
-<style scoped src="../css/sk.css" />
-
-
-
+<style src="../css/detapage.css">
 </style>
 
 
-<style scoped >
 
-/*导航*/
-.navigation {
-  width: 100%;
-  height: 1.333333rem;
-  background: #ddd;
-  display: flex;
-  justify-content: space-around;
-}
-.navigation i {
-  font-size: 14px;
-  line-height: 1.333333rem;
-}
-.navigation .van-icon {
-  font-size: 18px;
-}
-/*隐藏导航*/
-.hideNav {
-  position: absolute;
-  right: 0;
-  z-index: 1;
-  width: 100px;
-  height: 145px;
-  background: #fff;
-}
-.hideNav .van-icon {
-  font-size: 18px;
-}
 
-.hideNav ul {
-  display: flex;
-  flex-direction: column;
-}
-.hideNav ul li {
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-  height: 36px;
-  line-height: 36px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.hideNav ul li .van-icon {
-  margin-right: 10px;
-}
-
-/*轮播图*/
-.van-swipe-item {
-  text-align: center;
-}
-.van-swipe-item img {
-
-  width: 100%;
-
-}
-.van-swipe__indicator {
-  background: #666;
-}
-.element.style {
-  background: #111;
-}
-/*小图片*/
-.option {
-  width: 100%;
-  border-bottom: 1px solid #666;
-  display: flex;
-  justify-content: space-around;
-  height: 1.333333rem;
-}
-.option div {
-  display: flex;
-  align-items: center;
-}
-.option i:nth-child(1) {
-  margin-left: 0;
-  border: 1px solid #000;
-}
-.option i {
-  display: inline-block;
-  width: 0.666667rem;
-  height: 0.666667rem;
-
-  margin-left: 20px;
-}
-/*    购物车底部  */
-
-.van-goods-action-button--first,
-.van-button {
-  border-radius: 0px;
-}
-.van-goods-action-button--warning {
-  background: #000;
-}
-.van-goods-action-button--danger {
-  background: rgb(248, 161, 32);
-}
-/*加入购物车遮罩*/
-.bottomCart {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1.333333rem;
-  background: #111;
-  color: #fff;
-  font-size: 12px;
-  line-height: 1.333333rem;
-  text-align: center;
-}
-/*标签*/
-.van-tabs__wrap {
-  position: absolute;
-  top: 150px;
-  left: 12px;
-}
-
-.van-ellipsis {
-  border: 1px solid #666;
-  width: 40px;
-  height: 20px;
-  line-height: 20px;
-}
-.van-tabs__line {
-  z-index: 0;
-  background-color: #fff;
-  top: 100px;
-}
-.van-tab--active {
-  background: rgb(15, 15, 15);
-  width: 42px;
-  height: 22px;
-  color: #fff;
-  padding: 0;
-  font-size: 12px;
-}
-.van-popup .textColor {
-  position: absolute;
-  top: 130px;
-  left: 18px;
-}
-.van-popup p {
-  position: absolute;
-  top: 230px;
-  left: 18px;
-}
-.van-tab {
-  font-size: 12px;
-}
-.van-stepper {
-  position: absolute;
-  top: 220px;
-  left: 200px;
-  border: 1px solid #999;
-  height: 25px;
-  width: 90px;
-  line-height: 25px;
-}
-.van-stepper__input {
-  margin: 0;
-  height: 20px;
-}
-.van-stepper__plus {
-  width: 28px;
-  height: 0;
-}
-.van-stepper__minus {
-  height: 0px;
-}
-</style>
 
