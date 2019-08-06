@@ -1,9 +1,8 @@
 <template>
   <div>
+    <!-- 列表 -->
     <Header/>
     <Content/>
-
-
   </div>
 </template>
 <script>

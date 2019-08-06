@@ -23,7 +23,7 @@ import {
 	// 下拉
 	DropdownMenu,
 	DropdownItem,
-	// 购物车底部
+	// 详情页底部
 	GoodsAction,
 	GoodsActionIcon,
 	GoodsActionButton,
@@ -36,7 +36,11 @@ import {
 	// 标签
 	Tab,
 	Tabs,
-	Stepper
+  Stepper,
+  // 购物车
+  Checkbox, CheckboxGroup,
+  Card,SubmitBar,Toast
+
 } from 'vant';
 
 
@@ -59,5 +63,8 @@ export default () => {
 		.use(Icon)
 		.use(Popup)
 		.use(Tab).use(Tabs)
-		.use(Stepper)
+    .use(Stepper)
+    Vue.use(Checkbox).use(CheckboxGroup)
+    .use(Card).use(SubmitBar)
+    .use(Toast)
 }

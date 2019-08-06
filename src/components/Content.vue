@@ -1,12 +1,14 @@
 <template>
   <div>
+    <!-- 下拉菜单 -->
+    
     <!-- 内容 -->
     <div>
       <ul data-v-61656187="" class="listGoods">
-        <li data-v-61656187="" class="listGoods-item" >
-          <a data-v-61656187="" :href="url">
+        <li data-v-61656187="" class="listGoods-item" @click="jumpParticulars" v-for="(k,index) in listHas" :key="index" >
+          <a data-v-61656187="" href="#">
             <div data-v-61656187="" class="listGoods-imgBox">
-              <div data-v-61656187="" class="listGoods-imgWrp"><img src="//pic10.secooimg.com/product/374/374/57/10/9d75188f95994132b3df617d6bd3f381.jpg_!!0x0.webp" style="display: block;" width="100%" height="100%"></div>
+              <div data-v-61656187="" class="listGoods-imgWrp"><img :src="k.imgUrl" style="display: block;" width="100%" height="100%"></div>
             </div>
             <div data-v-61656187="" class="listGoods-info">
               <h3 data-v-61656187="" class="listGoods-brand">CALVIN KLEIN</h3>
@@ -29,6 +31,7 @@
             </div>
           </a>
         </li>
+        
       </ul>
     </div>
     <!-- 购物车选规格 -->
@@ -41,20 +44,27 @@ export default {
   data() {
     return {
       listHas: [],
-      url:"/about",
+  // v-for="(k,index) in listHas" :key="index"
     };
   },
-  methods: {},
+  methods: {
+    jumpParticulars(){
+      this.$router.push({
+        name:'search'
+      })
+    }
+  },
   async created() {
-    // let listHas = await this.$axios.post(
-    // "http://10.3.132.227:12345/brand/list"
-    // );
-    // console.log(listHas);
+    let listHas = await this.$axios(
+      "https://www.easy-mock.com/mock/5d4699307e2c484eee66fda1/suku/list"
+    );
+    this.listHas = listHas.data.productList;
+    // console.log(this.listHas);
+    
+    
+    // this.listHas = data.data.filterList;
+    //  console.log(listHas);
   }
 };
 </script>
-<style>
-.book {
-  border: 1px solid #000;
-}
-</style>
+<style  src="../css/sk.css"></style>

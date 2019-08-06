@@ -18,7 +18,7 @@ export default new Router({
       name: 'home0',
       component: Home
     },
-    {
+    {//购物车
       path: '/search',
       name: 'search',
       component: search
@@ -52,6 +52,6 @@ export default new Router({
       path: '/listpage',
       name: 'listpage',
       component: listpage
-    }
+    },
   ]
 })

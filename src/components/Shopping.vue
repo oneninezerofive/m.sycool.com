@@ -33,10 +33,8 @@
       <van-swipe-item v-for="(k,index) in detailsImg" :key="index">
         <img :src="k.url" alt="">
       </van-swipe-item>
-      <!-- <van-swipe-item>2</van-swipe-item> -->
-      <!-- <van-swipe-item>3</van-swipe-item> -->
-      <!-- <van-swipe-item>4</van-swipe-item> -->
     </van-swipe>
+    
     <!-- 选项 -->
     <div class="option">
       <div>
@@ -61,10 +59,10 @@
         <!-- 底部 -->
         <van-tabs v-model="active">
 
-          <van-tab title="标签 1">内容 1</van-tab>
-          <van-tab title="标签 2">内容 2</van-tab>
-          <van-tab title="标签 3">内容 3</van-tab>
-          <van-tab title="标签 4">内容 4</van-tab>
+          <van-tab title="标签">内容 1</van-tab>
+          <van-tab title="标签">内容 2</van-tab>
+          <van-tab title="标签">内容 3</van-tab>
+          <van-tab title="标签">内容 4</van-tab>
         </van-tabs>
         <div class="textColor" style="font-size: 14px ;font-weight: bold; ">颜色</div>
         <p style="font-size: 14px ;font-weight: bold; ">数量
@@ -77,6 +75,7 @@
       <van-goods-action-button type="danger" text="立即购买" />
     </van-goods-action>
     <!-- 商品规格 -->
+    
 
   </div>
 </template>
@@ -125,9 +124,11 @@ export default {
   }
 };
 </script>
+<style src="../css/sk.css">
 
-
+</style>
 <style>
+
 /*导航*/
 .navigation {
   width: 100%;
@@ -174,8 +175,12 @@ export default {
 }
 
 /*轮播图*/
+.van-swipe-item{
+text-align: center;
+}
 .van-swipe-item img {
   width: 320px;
+  
 }
 .van-swipe__indicator {
   background: #666;
@@ -228,7 +233,7 @@ export default {
   height: 1.333333rem;
   background: #111;
   color: #fff;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.333333rem;
   text-align: center;
 }
@@ -237,18 +242,15 @@ export default {
   position: absolute;
   top: 150px;
   left: 12px;
-  /* border: 1px solid #000; */
-  /* width: 100%; */
+
 }
-.van-tabs__nav--line {
-  /* border: 1px solid #000; */
-}
+
 .van-ellipsis {
   border: 1px solid #666;
   width: 40px;
   height: 20px;
   line-height: 20px;
-  /* box-sizing: border-box; */
+ 
 }
 .van-tabs__line {
   z-index: 0;
@@ -273,11 +275,14 @@ export default {
   top: 230px;
   left: 18px;
 }
+.van-tab{
+  font-size: 12px;
+}
 .van-stepper{
   position: absolute;
   top: 220px;
   left: 200px;
-  border: 1px solid #000;
+  border: 1px solid #999;
   height: 25px;
   width: 90px;
   line-height: 25px;
@@ -290,6 +295,9 @@ export default {
 .van-stepper__plus{
   width: 28px;
   height: 0;
+}
+.van-stepper__minus{
+  height: 0px;
 }
 </style>
 
