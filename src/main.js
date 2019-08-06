@@ -3,7 +3,8 @@ import App from './App.vue'
 import axios from 'axios'
 Vue.prototype.$axios = axios
 // 移动端
-import './rem'
+import './lib/rem'
+import './css/index.css'
 import router from './router/router'
 import store from './store/store'
 import Vant from './vant/vant'

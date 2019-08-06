@@ -2,13 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/Home.vue'
 
-const search = () => import('../views/Search.vue')
+const search = () => import('../views/Searchval.vue')
 const brand = () => import('../views/Brand.vue')
 const classify = () => import('../views/Classify.vue')
 const shoppingbag = () => import('../views/ShoppingBag.vue')
+const shoppingcar = () => import('../views/ShoppingCar.vue') //购物车
 const mine = () => import('../views/Mine.vue')
 const login = () => import('../views/Login.vue')
-const listpage=()=>import('../views/Listpage.vue')
+const listpage = () => import('../views/Listpage.vue')
 
 Vue.use(Router)
 
@@ -18,7 +19,7 @@ export default new Router({
       name: 'home0',
       component: Home
     },
-    {//购物车
+    {
       path: '/search',
       name: 'search',
       component: search
@@ -45,13 +46,27 @@ export default new Router({
     },
     {
       path: '/login',
-      name: 'home5',
+      name: 'login',
       component: login
     },
-    {//列表页路由
+    { //列表页路由
       path: '/listpage',
       name: 'listpage',
       component: listpage
     },
+    { //购物车详情页
+      path: '/shoppingcar',
+      name: 'shoppingcar',
+      component: shoppingcar
+    },
+
+    //重定向
+    {
+      path: '/',
+      alias: '/index.html',
+      redirect: () => {
+        return '/home0'
+      }
+    }
   ]
 })

@@ -1,9 +1,8 @@
- 
 
-<template> 
+<template>
   <div class="about">
-    <!-- 详情页 -->
-    <Shopping/>
+    <!-- 购物车详情页 -->
+    <Shopping />
   </div>
 </template>
 <script>

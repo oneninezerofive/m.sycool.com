@@ -2,6 +2,7 @@
 
   <div>
     <!-- 购物车 -->
+    购物袋结算
     <!-- <Cartpage/> -->
   </div>
 </template>
