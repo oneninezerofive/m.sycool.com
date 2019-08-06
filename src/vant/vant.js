@@ -36,11 +36,13 @@ import {
 	// 标签
 	Tab,
 	Tabs,
-  Stepper,
-  // 购物车
-  Checkbox, CheckboxGroup,
-  Card,SubmitBar,Toast
-
+	Stepper,
+	// 购物车
+	Checkbox,
+	CheckboxGroup,
+	Card,
+	SubmitBar,
+	Toast,
 } from 'vant';
 
 
@@ -63,8 +65,8 @@ export default () => {
 		.use(Icon)
 		.use(Popup)
 		.use(Tab).use(Tabs)
-    .use(Stepper)
-    Vue.use(Checkbox).use(CheckboxGroup)
-    .use(Card).use(SubmitBar)
-    .use(Toast)
+		.use(Stepper)
+	Vue.use(Checkbox).use(CheckboxGroup)
+		.use(Card).use(SubmitBar)
+		.use(Toast)
 }

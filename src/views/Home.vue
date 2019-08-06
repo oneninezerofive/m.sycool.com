@@ -25,7 +25,12 @@
     <!-- 水平滚动的列表 -->
     <div class="bag_box">
       <ul class="lis clearfix">
-        <li v-for="(item,index) in scroll" :key="index">
+        <li
+          v-for="(item,index) in scroll"
+          :key="index"
+          :data-id="item.urlType"
+          @click="golist(item.urlType)"
+        >
           <h3 v-text="`${item.title}${item.subTitle}`"></h3>
           <img :src="item.img" alt />
         </li>
@@ -99,7 +104,7 @@
           v-for="(item,index) in foot"
           :key="index"
           @click="active(index)"
-          :class="{active:index == num}"
+          :class="{active:index == 0}"
         >
           <i class="iconfont" :class="item.icon"></i>
           <span v-text="item.font"></span>
@@ -155,6 +160,12 @@ export default {
         name: 'search'
       })
     },
+    golist(id) {
+      this.$router.push({
+        name: 'listpage',
+        params: { id: id }
+      })
+    },
     active(index) {
       this.num = index
       this.$router.push({
@@ -168,7 +179,6 @@ export default {
 
   async created() {
     let playlist = await this.$axios('http://10.3.132.227:12345/home/floors');
-    // console.log(playlist);
     //轮播图数据
     this.playlist = playlist.data[0].floors[0].list;
     var images = [];
@@ -188,7 +198,6 @@ export default {
 
     //列表-3的数据
     this.good = playlist.data[0].floors.slice(4, 12);
-    //14-32
 
     //人气排行列表数据
     this.popularity = playlist.data[0].floors[12].list;

@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import App from './App.vue'
-import axios from 'axios'
-Vue.prototype.$axios = axios
 // 移动端
 import './lib/rem'
 import './css/index.css'
@@ -13,13 +11,18 @@ Vant()
 //引入iconfont
 import './lib/iconfont/iconfont.css'
 
+import axios from 'axios'
+Vue.prototype.$axios = axios
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+import qs from "qs";
+Vue.prototype.$qs = qs;
 
 Vue.config.productionTip = false
 
 new Vue({
 
-  router,
-  store,
+	router,
+	store,
 
-  render: h => h(App)
+	render: h => h(App)
 }).$mount('#app')

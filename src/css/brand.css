@@ -2,8 +2,10 @@
     height: 1.333333rem;
     background-color: #fff;
     display: flex;
-    position: relative;
+    position: fixed;
+    top: 0;
     z-index: 99999;
+    width: 100%;
 }
 
 #head>div {
@@ -41,7 +43,7 @@
     background-color: #fff;
     position: absolute;
     right: 0;
-    top: 1.4rem;
+    top: 1.32rem;
     /* transform: translateY(-100%);
     transition: all .25s ease; */
     z-index: 8888;
@@ -81,6 +83,7 @@
     font-size: .56rem;
     text-align: center;
     font-weight: bold;
+    margin-top: 1.333333rem;
 }
 
 .shop_list {
@@ -157,10 +160,11 @@
 }
 
 .shop_list3 ul li .shop_font p {
-    font-size: 0.4rem;
+    font-size: .32rem;
     padding-top: 0.213333rem;
-    width: 92%;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
     padding-bottom: .266667rem;
+    background: #fff;
 }

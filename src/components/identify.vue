@@ -1,8 +1,4 @@
 <template>
-	<!-- 作者：yyrSun
-	来源：CSDN
-	原文：https://blog.csdn.net/yyjourney/article/details/79072093
-	版权声明：本文为博主原创文章，转载请附上博文链接！ -->
 	<div class="s-canvas">
 		<canvas id="s-canvas" :width="contentWidth" :height="contentHeight"></canvas>
 	</div>
@@ -106,7 +102,7 @@
 			},
 			drawLine(ctx) {
 				// 绘制干扰线
-				for (let i = 0; i < 8; i++) {
+				for (let i = 0; i < 4; i++) {
 					ctx.strokeStyle = this.randomColor(this.lineColorMin, this.lineColorMax)
 					ctx.beginPath()
 					ctx.moveTo(this.randomNum(0, this.contentWidth), this.randomNum(0, this.contentHeight))
@@ -116,7 +112,7 @@
 			},
 			drawDot(ctx) {
 				// 绘制干扰点
-				for (let i = 0; i < 50; i++) {
+				for (let i = 0; i < 25; i++) {
 					ctx.fillStyle = this.randomColor(0, 255)
 					ctx.beginPath()
 					ctx.arc(this.randomNum(0, this.contentWidth), this.randomNum(0, this.contentHeight), 1, 0, 2 * Math.PI)
