@@ -28,7 +28,7 @@
               v-for="(i,index) in item.child"
               :key="index"
               v-text="i.name"
-              @click="gorem(i.name)"
+              @click="gorem(1,i.name)"
               :data-name="i.name"
             ></li>
           </ul>
@@ -43,7 +43,7 @@
           v-for="(i,index) in item.list"
           :key="index"
           :data-name="i.ename"
-          @click="gorem(i.ename)"
+          @click="gorem(2,i.ename)"
         >
           <span v-text="i.cname"></span>
           <span v-text="i.ename"></span>
@@ -86,10 +86,13 @@ export default {
         this.isok = true;
       }
     },
-    gorem(name) {
+    gorem(cla, name) {
       this.$router.push({
         name: 'listpage',
-        params: { name: name }
+        params: {
+          cla: cla,
+          name: name
+        }
       })
     }
   },
@@ -102,7 +105,7 @@ export default {
     //品牌接口
     let remrmber = await this.$axios('http://10.3.132.227:12345/brand/list');
     this.remember = remrmber.data[0].result.brands;
-    console.log(remrmber.data[0].result.brands);
+    // console.log(remrmber.data[0].result.brands);
   }
 }
 </script>

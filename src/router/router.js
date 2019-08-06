@@ -51,7 +51,7 @@ export default new Router({
       component: login
     },
     { //列表页路由
-      path: '/listpage/:name',
+      path: '/listpage/:cla/:name',
       name: 'listpage',
       component: listpage
     },
