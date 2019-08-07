@@ -97,12 +97,13 @@ export default {
               password: this.password
             })
           }).then(function (res) {
-            if (res.data.status) {
+            // console.log(res)
+            if (res.data.status == 200) {
               localStorage.setItem("loginToken", res.data.token);
               sessionStorage.setItem("isLogin", true);
               sessionStorage.setItem("username", res.data.username);
               this.$router.push({
-                name: "home"
+                name: "home0"
               });
             } else {
               alert("用户名或密码错误！");
