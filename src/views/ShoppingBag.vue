@@ -4,7 +4,6 @@
 		<!-- 头部导航栏 -->
 		<van-nav-bar title="购物袋" left-text right-text="编辑" left-arrow @click-left="onClickLeft" @click-right="onClickRight"
 		 :fixed="true" />
-
 		<!-- 商品数据(无数据状态) -->
 		<div class="list" v-show="!bool">
 			<div class="list_k">

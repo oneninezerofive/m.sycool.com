@@ -99,5 +99,10 @@ router.beforeEach((to, from, next) => {
 			next();
 		}
 	}
+<<<<<<< HEAD
 });
 export default router;
+=======
+})
+export default router;
+>>>>>>> 854754e55eee71fcf7862d4d2f7ed87af89db36c
