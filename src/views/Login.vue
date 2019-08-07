@@ -51,7 +51,7 @@
 				checkcode: "",
 				icode: "",
 				geticode: true,
-				identifyCodes: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+				identifyCodes: "abcdefghijklmnopqrstuvwxyz1234567890",
 				identifyCode: "",
 				status: 0,
 				text: {
@@ -79,13 +79,11 @@
 						this.randomNum(0, this.identifyCodes.length)
 					];
 				}
-				// console.log(this.identifyCode);
 			},
 			userlogin() {
 				if (this.icode === this.identifyCode) {
 					if (this.status === 0) {
 						// 短信快捷登录
-						console.log("暂时没时间做");
 						this.status = 1;
 					} else {
 						// 账号密码登录
@@ -99,11 +97,14 @@
 						}).then(function(res) {
 							if (res.data.status) {
 								localStorage.setItem("loginToken", res.data.token);
+								// this.$store.commit("setislogin", true);
+								// this.$store.commit("setuid", res.data._id);
+								// this.$store.commit("setusername", res.data.username);
 								sessionStorage.setItem("isLogin", true);
 								sessionStorage.setItem("username", res.data.username);
-								this.$router.push({
-									name: "home"
-								});
+								sessionStorage.setItem("username", res.data.uid);
+								alert("登录成功，将跳转回上一页。");
+								this.$router.go(-1);
 							} else {
 								alert("用户名或密码错误！");
 							}
@@ -112,7 +113,7 @@
 						});
 					}
 				} else {
-					console.log("验证码错误");
+					alert("验证码错误");
 				}
 			},
 			change() {
