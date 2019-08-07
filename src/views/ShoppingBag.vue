@@ -98,6 +98,9 @@ export default {
     }
   },
   async created() {
+    //购物车信息
+    let mycar = await this.$axios('http://10.3.132.227:12345/cart?uid=5d4944beee7a000063000b80');
+    console.log(mycar)
     //猜你喜欢数据
     let mylike = await this.$axios('http://10.3.132.227:12345/goods/type?type=单肩包&skip=5');
     this.mylike = mylike.data
