@@ -26,7 +26,6 @@
           v-for="(item,index) in shop"
           :key="index"
           :data-name="item.des"
-          @click="golist(item.des)"
         >
           <div class="shop_img">
             <img :src="item.img" alt />
@@ -45,7 +44,6 @@
           v-for="(item,index) in shopthree"
           :key="index"
           :data-name="item.des"
-          @click="golist(item.des)"
         >
           <div class="shop_img">
             <img :src="item.img" alt />
@@ -64,6 +62,7 @@ export default {
   data() {
     return {
       bool: false,
+      b: '',
 
       nav: [{
         icon: 'icon-shouye',
@@ -101,12 +100,15 @@ export default {
         name: `home${index}`
       })
     },
-    golist(name) {
-      this.$router.push({
-        name: 'listpage',
-        params: { name: name }
-      })
-    }
+    // golist(cla, name) {
+    //   this.$router.push({
+    //     name: 'listpage',
+    //     params: {
+    //       cla: cla,
+    //       name: name
+    //     }
+    //   })
+    // }
   },
   async created() {
     let shop = await this.$axios('http://10.3.132.227:12345/brands/list');

@@ -43,6 +43,7 @@ import {
 	Card,
 	SubmitBar,
 	Toast,
+	List
 } from 'vant';
 
 
@@ -66,7 +67,8 @@ export default () => {
 		.use(Popup)
 		.use(Tab).use(Tabs)
 		.use(Stepper)
-	Vue.use(Checkbox).use(CheckboxGroup)
+		.use(Checkbox).use(CheckboxGroup)
 		.use(Card).use(SubmitBar)
 		.use(Toast)
+		.use(List);
 }

@@ -1,7 +1,7 @@
 
 <template>
   <div class="about">
-    <!-- 购物车详情页 -->
+    <!-- 详情页 -->
     <DetailPage />
   </div>
 </template>

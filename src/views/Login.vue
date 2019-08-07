@@ -1,40 +1,40 @@
 <template>
-	<div class="login-view">
-		<!-- 导航栏 -->
-		<van-nav-bar :title="text.title[status]" left-arrow @click-left="onClickLeft" />
-		<!-- 表单 -->
-		<van-cell-group>
-			<van-field v-model="username" :placeholder="text.userholder[status]" />
-			<van-field v-model="password" type="password" placeholder="密码" v-show="status" />
-			<van-field v-model="checkcode" placeholder="验证码" v-show="!status">
-				<van-button slot="button" size="normal" type="primary" :disable="geticode">发送验证码</van-button>
-			</van-field>
-			<van-field v-model="icode" placeholder="图形验证码">
-				<van-button class="code" slot="button" size="small" type="primary" @click="refreshCode">
-					<sidentify :identifyCode="identifyCode"></sidentify>
-				</van-button>
-			</van-field>
-		</van-cell-group>
-		<van-button type="primary" size="large" @click="userlogin">登录</van-button>
-		<div class="plus-options">
-			<span @click="change">{{text.changedes[status]}}</span>
-			<span>{{text.plusdes[status]}}</span>
-		</div>
-		<div class="third-party">
-			<div>
-				<img src="@/assets/icon_okvc34he0lr/wechat.png" alt />
-				<p>微信登录</p>
-			</div>
-			<div>
-				<img src="@/assets/icon_okvc34he0lr/qq.png" alt />
-				<p>QQ登录</p>
-			</div>
-			<div>
-				<img src="@/assets/icon_okvc34he0lr/baidu.png" alt />
-				<p>百度登录</p>
-			</div>
-		</div>
-	</div>
+  <div class="login-view">
+    <!-- 导航栏 -->
+    <van-nav-bar :title="text.title[status]" left-arrow @click-left="onClickLeft" />
+    <!-- 表单 -->
+    <van-cell-group>
+      <van-field v-model="username" :placeholder="text.userholder[status]" />
+      <van-field v-model="password" type="password" placeholder="密码" v-show="status" />
+      <van-field v-model="checkcode" placeholder="验证码" v-show="!status">
+        <van-button slot="button" size="normal" type="primary" :disable="geticode">发送验证码</van-button>
+      </van-field>
+      <van-field v-model="icode" placeholder="图形验证码">
+        <van-button class="code" slot="button" size="small" type="primary" @click="refreshCode">
+          <sidentify :identifyCode="identifyCode"></sidentify>
+        </van-button>
+      </van-field>
+    </van-cell-group>
+    <van-button type="primary" size="large" @click="userlogin">登录</van-button>
+    <div class="plus-options">
+      <span @click="change">{{text.changedes[status]}}</span>
+      <span>{{text.plusdes[status]}}</span>
+    </div>
+    <div class="third-party">
+      <div>
+        <img src="@/assets/icon_okvc34he0lr/wechat.png" alt />
+        <p>微信登录</p>
+      </div>
+      <div>
+        <img src="@/assets/icon_okvc34he0lr/qq.png" alt />
+        <p>QQ登录</p>
+      </div>
+      <div>
+        <img src="@/assets/icon_okvc34he0lr/baidu.png" alt />
+        <p>百度登录</p>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -127,57 +127,57 @@
 		mounted() {
 			this.identifyCode = "";
 			this.makeCode(this.identifyCodes, 4);
-		},
+		}
 	}
 </script>
 
 
 <style scoped>
-	.van-nav-bar {
-		margin-bottom: 75px;
-	}
+.van-nav-bar {
+  margin-bottom: 75px;
+}
 
-	.code {
-		width: 112px;
-		height: 38px;
-		border: 1px solid red;
-	}
+.code {
+  width: 112px;
+  height: 38px;
+  border: 1px solid red;
+}
 
-	.van-button--primary {
-		background: #1a191e;
-		color: white;
-	}
+.van-button--primary {
+  background: #1a191e;
+  color: white;
+}
 
-	.van-button--small {
-		padding: 0;
-	}
+.van-button--small {
+  padding: 0;
+}
 
-	.van-button--large {
-		width: 300px;
-		margin: 10px;
-	}
+.van-button--large {
+  width: 300px;
+  margin: 10px;
+}
 
-	.plus-options {
-		display: flex;
-		justify-content: space-between;
-	}
+.plus-options {
+  display: flex;
+  justify-content: space-between;
+}
 
-	.plus-options>span {
-		display: block;
-		margin: 0 20px 0 20px;
-		font-size: 12px;
-	}
+.plus-options > span {
+  display: block;
+  margin: 0 20px 0 20px;
+  font-size: 12px;
+}
 
-	.third-party {
-		margin-top: 20px;
-		display: flex;
-		justify-content: space-around;
-		text-align: center;
-	}
+.third-party {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
 
-	.third-party div img {
-		width: 30px;
-		height: 30px;
-		margin: 0 auto;
-	}
+.third-party div img {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+}
 </style>

@@ -49,14 +49,14 @@ const routes = [{
 		component: login
 	},
 	{ //列表页路由
-	  path: '/listpage/:cla/:name',
-	  name: 'listpage',
-	  component: listpage
+		path: '/listpage/:cla/:name',
+		name: 'listpage',
+		component: listpage
 	},
 	{ //详情页
-	  path: '/detapages',
-	  name: 'ddetapages',
-	  component: detapages
+		path: '/detapages/:id',
+		name: 'detapages',
+		component: detapages
 	},
 	{ //重定向
 		path: '/',
@@ -99,6 +99,5 @@ router.beforeEach((to, from, next) => {
 			next();
 		}
 	}
-});
 
 export default router;

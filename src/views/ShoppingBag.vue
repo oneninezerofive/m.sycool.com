@@ -50,18 +50,22 @@
     <div class="mylike">
       <h2>猜你喜欢</h2>
       <ul>
-        <li v-for="(item,index) in mylike" :key="index">
+        <li
+          v-for="(item,index) in mylike"
+          :key="index"
+          :data-id="item._id"
+          @click="golist(item._id)"
+        >
           <div class="mylike_img">
-            <img :src="item.img" alt />
+            <img :src="item.imgSrc[0]" alt />
           </div>
           <div class="mylike_font">
-            <h3 v-text="item.title"></h3>
-            <p class="title" v-text="item.content"></p>
+            <p class="title" v-text="item.gName"></p>
             <p class="price">
-              <span class="d_price" v-text="`￥${item.price}`"></span>
-              <span class="d_icon" v-text="item.remember"></span>
+              <span class="d_price" v-text="`￥${item.currentPrice}`"></span>
+              <span class="d_icon">会员价</span>
             </p>
-            <p class="del_price" v-text="`￥${item.oldprice}`"></p>
+            <p class="del_price" v-text="`￥${item.currentPrice}`"></p>
             <p class="name">自营</p>
           </div>
         </li>
@@ -86,10 +90,19 @@ export default {
     onClickRight() {
     },
     onSubmit() { },
+    golist(id) {
+      this.$router.push({
+        name: 'detapages',
+        params: { id: id }
+      })
+    }
   },
   async created() {
+    //购物车信息
+    let mycar = await this.$axios('http://10.3.132.227:12345/cart?uid=5d4944beee7a000063000b80');
+    console.log(mycar)
     //猜你喜欢数据
-    let mylike = await this.$axios('https://www.easy-mock.com/mock/5d40092bfd74df5e8c45e490/list/imgurl');
+    let mylike = await this.$axios('http://10.3.132.227:12345/goods/type?type=单肩包&skip=5');
     this.mylike = mylike.data
   }
 }
