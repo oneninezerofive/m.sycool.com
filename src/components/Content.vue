@@ -6,12 +6,14 @@
     </form>
 
     <!-- 下拉菜单 -->
+
     <van-dropdown-menu style="margin-top:1.44rem">
       <van-dropdown-item v-model="value1" :options="option1" />
       <div class="van-dropdown-menu__item box1">销量</div>
       <div class="van-dropdown-menu__item box2">新品</div>
       <div class="van-dropdown-menu__item box3">折扣</div>
     </van-dropdown-menu>
+
 
     <!-- 内容区域 -->
     <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="getShoplist">
@@ -32,6 +34,7 @@
               <p class="price">
                 <span class="price_peice" v-text="`￥${item.currentPrice}`">2213</span>
                 <span class="price_icon">会员价</span>
+
               </p>
               <p class="del_price" v-text="`￥${item.currentPrice}`">132</p>
               <p class="name">自营</p>
