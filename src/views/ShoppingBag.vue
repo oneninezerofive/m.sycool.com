@@ -12,6 +12,8 @@
       :fixed="true"
     />
 
+
+
     <!-- 商品数据(无数据状态) -->
     <div class="list" v-show="!bool">
       <div class="list_k">
@@ -19,6 +21,9 @@
       </div>
       <p>千万好物等待您的挑选</p>
     </div>
+
+
+
 
     <!-- 商品数据(有数据状态) -->
     <div class="shop_lis" v-show="bool">
@@ -41,10 +46,16 @@
       </div>
     </div>
 
+
+
+
     <!-- 底部结算 -->
     <van-submit-bar :price="3050" button-text="去结算" @submit="onSubmit" v-show="bool">
       <van-checkbox style="margin-left:10px" v-model="checked">全选</van-checkbox>
     </van-submit-bar>
+
+
+
 
     <!-- 猜你喜欢 -->
     <div class="mylike">
