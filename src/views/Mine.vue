@@ -6,7 +6,7 @@
 		</van-nav-bar>
 		<!-- 分组1 -->
 		<van-cell-group>
-			<van-cell title="账户" icon="manager-o" :value="this.$store.getters.getusername" is-link />
+			<van-cell title="账户" icon="manager-o" :value="getname" is-link />
 			<van-cell title="订单" icon="orders-o" is-link />
 			<van-cell title="红包, 优惠券" icon="balance-o" is-link />
 		</van-cell-group>
@@ -25,11 +25,11 @@
 			<van-cell title="海外站购买说明" icon="info-o" is-link />
 		</van-cell-group>
 		<ul class="other-link">
-			<li>
+			<li @click="gohome">
 				<van-icon name="shop-o" />
 				<p>主页</p>
 			</li>
-			<li>
+			<li @click="gocar">
 				<van-icon name="cart-o" />
 				<p>购物袋</p>
 			</li>
@@ -58,7 +58,26 @@
 				this.$router.go(-1);
 			},
 			logout() {
-				
+				window.sessionStorage.clear();
+				window.localStorage.clear();
+				this.$router.push({
+					name: 'login'
+				})
+			},
+			gohome() {
+				this.$router.push({
+					name: 'home0'
+				})
+			},
+			gocar() {
+				this.$router.push({
+					name: 'home3'
+				})
+			}
+		},
+		computed: {
+			getname() {
+				return sessionStorage.getItem('username');
 			}
 		}
 	}
@@ -68,20 +87,21 @@
 	.mine-view {
 		background: #f5f5f5;
 	}
-	
+
 	.van-icon-close {
 		font-size: 22px;
 	}
-	
-	.van-cell-group, .van-nav-bar{
+
+	.van-cell-group,
+	.van-nav-bar {
 		margin-bottom: 16px;
 	}
-	
+
 	.other-link {
 		display: flex;
 		justify-content: space-around;
 	}
-	
+
 	.other-link li {
 		box-sizing: border-box;
 		width: 80px;
@@ -91,22 +111,22 @@
 		background: white;
 		text-align: center;
 	}
-	
+
 	.other-link li .van-icon {
 		font-size: 30px;
 	}
-	
+
 	.other-link li p {
 		font-size: 14px;
 	}
-	
-	.footer{
+
+	.footer {
 		margin-top: 10px;
-		border-top: 1px solid #EEE;
+		border-top: 1px solid #eee;
 		text-align: center;
 	}
-	
-	.footer p{
+
+	.footer p {
 		margin-top: 5px;
 	}
 </style>

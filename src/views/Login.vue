@@ -102,9 +102,11 @@
 								// this.$store.commit("setusername", res.data.username);
 								sessionStorage.setItem("isLogin", true);
 								sessionStorage.setItem("username", res.data.username);
-								sessionStorage.setItem("username", res.data.uid);
-								alert("登录成功，将跳转回上一页。");
-								this.$router.go(-1);
+								sessionStorage.setItem("uid", res.data.uid);
+								alert("登录成功，将跳转回个人中心。");
+								this.$router.push({
+									name: 'home4'
+								});
 							} else {
 								alert("用户名或密码错误！");
 							}
