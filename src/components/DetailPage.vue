@@ -228,7 +228,7 @@ export default {
     async cartPage() {
       let uid = window.sessionStorage.getItem('uid');
       let username = window.sessionStorage.getItem('username');
-      if (username == null) {
+      if (uid == null) {
         this.$router.push({
           name: 'login'
         })

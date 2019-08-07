@@ -38,97 +38,97 @@
 </template>
 
 <script>
-	import sidentify from '@/components/identify';
-	export default {
-		name: "login",
-		components: {
-			sidentify
-		},
-		data() {
-			return {
-				username: "",
-				password: "",
-				checkcode: "",
-				icode: "",
-				geticode: true,
-				identifyCodes: "abcdefghijklmnopqrstuvwxyz1234567890",
-				identifyCode: "",
-				status: 0,
-				text: {
-					title: ["短信快捷登录", "账号密码登录"],
-					userholder: ["手机号", "用户名/手机号/邮箱"],
-					changedes: ["账号密码登录", "短信快捷登录"],
-					plusdes: ["收不到验证码？", "忘记密码"]
-				}
-			};
-		},
-		methods: {
-			onClickLeft() {
-				this.$router.go(-1);
-			},
-			randomNum(min, max) {
-				return Math.floor(Math.random() * (max - min) + min);
-			},
-			refreshCode() {
-				this.identifyCode = "";
-				this.makeCode(this.identifyCodes, 4);
-			},
-			makeCode(o, l) {
-				for (let i = 0; i < l; i++) {
-					this.identifyCode += this.identifyCodes[
-						this.randomNum(0, this.identifyCodes.length)
-					];
-				}
-			},
-			userlogin() {
-				if (this.icode === this.identifyCode) {
-					if (this.status === 0) {
-						// 短信快捷登录
-						this.status = 1;
-					} else {
-						// 账号密码登录
-						this.$axios({
-							method: 'post',
-							url: "http://10.3.132.227:12345/login",
-							data: this.$qs.stringify({
-								username: this.username,
-								password: this.password
-							})
-						}).then(function(res) {
-							if (res.data.status) {
-								localStorage.setItem("loginToken", res.data.token);
-								// this.$store.commit("setislogin", true);
-								// this.$store.commit("setuid", res.data._id);
-								// this.$store.commit("setusername", res.data.username);
-								sessionStorage.setItem("isLogin", true);
-								sessionStorage.setItem("username", res.data.username);
-								sessionStorage.setItem("username", res.data.uid);
-								alert("登录成功，将跳转回上一页。");
-								this.$router.go(-1);
-							} else {
-								alert("用户名或密码错误！");
-							}
-						}).catch(function(err) {
-							console.log(err);
-						});
-					}
-				} else {
-					alert("验证码错误");
-				}
-			},
-			change() {
-				if (this.status) {
-					this.status = 0;
-				} else {
-					this.status = 1;
-				}
-			}
-		},
-		mounted() {
-			this.identifyCode = "";
-			this.makeCode(this.identifyCodes, 4);
-		}
-	}
+import sidentify from '@/components/identify';
+export default {
+  name: "login",
+  components: {
+    sidentify
+  },
+  data() {
+    return {
+      username: "",
+      password: "",
+      checkcode: "",
+      icode: "",
+      geticode: true,
+      identifyCodes: "abcdefghijklmnopqrstuvwxyz1234567890",
+      identifyCode: "",
+      status: 0,
+      text: {
+        title: ["短信快捷登录", "账号密码登录"],
+        userholder: ["手机号", "用户名/手机号/邮箱"],
+        changedes: ["账号密码登录", "短信快捷登录"],
+        plusdes: ["收不到验证码？", "忘记密码"]
+      }
+    };
+  },
+  methods: {
+    onClickLeft() {
+      this.$router.go(-1);
+    },
+    randomNum(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
+    },
+    refreshCode() {
+      this.identifyCode = "";
+      this.makeCode(this.identifyCodes, 4);
+    },
+    makeCode(o, l) {
+      for (let i = 0; i < l; i++) {
+        this.identifyCode += this.identifyCodes[
+          this.randomNum(0, this.identifyCodes.length)
+        ];
+      }
+    },
+    userlogin() {
+      if (this.icode === this.identifyCode) {
+        if (this.status === 0) {
+          // 短信快捷登录
+          this.status = 1;
+        } else {
+          // 账号密码登录
+          this.$axios({
+            method: 'post',
+            url: "http://10.3.132.227:12345/login",
+            data: this.$qs.stringify({
+              username: this.username,
+              password: this.password
+            })
+          }).then(function (res) {
+            if (res.data.status) {
+              localStorage.setItem("loginToken", res.data.token);
+              // this.$store.commit("setislogin", true);
+              // this.$store.commit("setuid", res.data._id);
+              // this.$store.commit("setusername", res.data.username);
+              sessionStorage.setItem("isLogin", true);
+              sessionStorage.setItem("username", res.data.username);
+              sessionStorage.setItem("uid", res.data.uid);
+              alert("登录成功，将跳转回上一页。");
+              this.$router.go(-1);
+            } else {
+              alert("用户名或密码错误！");
+            }
+          }).catch(function (err) {
+            console.log(err);
+          });
+        }
+      } else {
+        alert("验证码错误");
+      }
+    },
+    change() {
+      if (this.status) {
+        this.status = 0;
+      } else {
+        this.status = 1;
+      }
+    }
+  },
+  mounted() {
+    this.identifyCode = "";
+    this.makeCode(this.identifyCodes, 4);
+  }
+}
 </script>
 
 
