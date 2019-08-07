@@ -51,7 +51,6 @@ export default {
   methods: {
     jumpParticulars() {
       this.$router.push({
-
         name: 'shoppingcar'
       })
 

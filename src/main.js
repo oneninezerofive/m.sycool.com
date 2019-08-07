@@ -4,7 +4,9 @@ import App from './App.vue'
 import './lib/rem'
 import './css/index.css'
 import router from './router/router'
+
 import store from './store/store'
+
 import Vant from './vant/vant'
 Vant()
 
@@ -20,9 +22,7 @@ Vue.prototype.$qs = qs;
 Vue.config.productionTip = false
 
 new Vue({
-
 	router,
 	store,
-
 	render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');

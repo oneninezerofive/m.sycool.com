@@ -2,12 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/Home.vue'
 
-import axios from 'axios'
-Vue.prototype.$axios = axios
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-import qs from "qs";
-Vue.prototype.$qs = qs;
-
 const search = () => import('../views/Searchval.vue')
 const brand = () => import('../views/Brand.vue')
 const classify = () => import('../views/Classify.vue')
@@ -83,26 +77,10 @@ router.beforeEach((to, from, next) => {
 	if(token != undefined) {
 		// 有令牌
 		if(isLogin == undefined) {
-			// 没有登录成功的状态时，检查令牌
-			this.$axios({
-				method: 'post',
-				url: "http://10.3.132.227:12345/login/check",
-				data: this.$qs.stringify({
-					token: token
-				})
-			}).then(function(res) {
-				let detail = res.data.detail;
-				if (detail.status) {
-					sessionStorage.setItem("isLogin", true);
-					sessionStorage.setItem("username", detail.username);
-				} else {
-					localStorage.removeItem("token");
-				}
-			}).catch(function(err) {
-				console.log(err);
-			});
+			// 没有登录成功的状态时
+			next();
 		}
-		// 已验证令牌，自动登录成功，设置路由
+		// 自动登录成功，设置路由
 		if(to.path === '/login') {
 			router.push({
 				name: 'home4'
