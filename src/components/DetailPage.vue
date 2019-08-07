@@ -1,5 +1,4 @@
 <template>
-
   <div>
     <!-- 详情页 -->
     <!-- 顶部 -->
@@ -30,7 +29,7 @@
     </div>
 
     <!-- 轮播 -->
-    <van-swipe indicator-color="white">
+    <van-swipe indicator-color="white" :autoplay="2000">
       <van-swipe-item v-for="(k,index) in listimg" :key="index">
         <img :src="k" alt />
       </van-swipe-item>
@@ -40,10 +39,11 @@
     <div class="option">
       <div>
         <i v-for="(ik,index) in listimg" :key="index">
-          <img :src="ik" alt="">
+          <img :src="ik" alt />
         </i>
       </div>
     </div>
+    
     <!-- 内容 -->
     <div class="box">
       <div class="price">￥{{listID.currentPrice}}</div>
@@ -84,16 +84,14 @@
       <!-- 商品详情 -->
       <h2 class="product-info-title">商品详情</h2>
       <div style=" margin-top: 5px;" v-for="(i,index) in listImgs" :key="index">
-        <img :src="i">
-
+        <img :src="i" />
       </div>
       <h1 class="imgUrl">-精品推荐-</h1>
-
     </div>
     <!-- 详情页底部 -->
     <van-goods-action>
       <van-goods-action-icon icon="chat-o" text="客服" />
-      <van-goods-action-icon info="" icon="cart-o" text="购物袋" />
+      <van-goods-action-icon info icon="cart-o" text="购物袋" />
 
       <van-goods-action-button type="warning" text="加入购物车" @click="showPopup" />
 
@@ -103,12 +101,15 @@
           <div class="jiage">￥{{listID.currentPrice}}</div>
           <p style="font-size: 16px ;font-weight: bold; top:120px; ">颜色</p>
           <van-tab title="颜色">
-
-            <div class="tu1"><img :src="listimg[0]" alt=""></div>
+            <div class="tu1">
+              <img :src="listimg[0]" alt />
+            </div>
           </van-tab>
 
           <van-tab title="颜色">
-            <div class="tu2"><img :src="listimg[1]" alt=""></div>
+            <div class="tu2">
+              <img :src="listimg[1]" alt />
+            </div>
           </van-tab>
         </van-tabs>
 
@@ -120,7 +121,6 @@
       <van-goods-action-button type="danger" text="立即购买" />
     </van-goods-action>
     <!-- 商品规格 -->
-
   </div>
 </template>
 <script>
@@ -153,19 +153,17 @@ export default {
       this.hideNav = !this.hideNav;
     },
     // 切换
-    qiehuan() {},
+    qiehuan() { },
 
     // 弹出层
     showPopup() {
       this.show = true;
     },
     //加入购物车
-    cartPage() {},
+    cartPage() { },
     Getback() {
       //跳转列表页
-      this.$router.push({
-        name: "home2"
-      });
+      this.$router.go(-1);
     },
     Shouye() {
       //跳转到首页
@@ -180,12 +178,12 @@ export default {
       });
     },
     Gouwu() {
-       this.$router.push({
+      this.$router.push({
         name: "home3"
       });
     },
     Wode() {
-       this.$router.push({
+      this.$router.push({
         name: "login"
       });
     }
@@ -199,13 +197,11 @@ export default {
     this.listimg = listID.data[0].imgSrc;
     this.listImgs = listID.data[0].gDetailsImgSrc;
     this.listgAttr = listID.data[0].gAttr;
-    console.log(this.listID);
-    
   }
 };
 </script>
-<style src="../css/detapage.css">
-</style>
+<style scoped src="../css/detapage.css" />
+
 
 
 
