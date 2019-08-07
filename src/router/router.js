@@ -55,14 +55,14 @@ const routes = [{
 		component: login
 	},
 	{ //列表页路由
-	  path: '/listpage/:cla/:name',
-	  name: 'listpage',
-	  component: listpage
+		path: '/listpage/:cla/:name',
+		name: 'listpage',
+		component: listpage
 	},
 	{ //详情页
-	  path: '/detapages',
-	  name: 'ddetapages',
-	  component: detapages
+		path: '/detapages/:id',
+		name: 'detapages',
+		component: detapages
 	},
 	{ //重定向
 		path: '/',
@@ -80,9 +80,9 @@ let router = new Router({
 router.beforeEach((to, from, next) => {
 	let token = localStorage.getItem("loginToken");
 	let isLogin = sessionStorage.getItem("isLogin");
-	if(token != undefined) {
+	if (token != undefined) {
 		// 有令牌
-		if(isLogin == undefined) {
+		if (isLogin == undefined) {
 			// 没有登录成功的状态时，检查令牌
 			this.$axios({
 				method: 'post',
@@ -90,7 +90,7 @@ router.beforeEach((to, from, next) => {
 				data: this.$qs.stringify({
 					token: token
 				})
-			}).then(function(res) {
+			}).then(function (res) {
 				let detail = res.data.detail;
 				if (detail.status) {
 					sessionStorage.setItem("isLogin", true);
@@ -98,12 +98,12 @@ router.beforeEach((to, from, next) => {
 				} else {
 					localStorage.removeItem("token");
 				}
-			}).catch(function(err) {
+			}).catch(function (err) {
 				console.log(err);
 			});
 		}
 		// 已验证令牌，自动登录成功，设置路由
-		if(to.path === '/login') {
+		if (to.path === '/login') {
 			router.push({
 				name: 'home4'
 			});
@@ -112,7 +112,7 @@ router.beforeEach((to, from, next) => {
 		}
 	} else {
 		// 没有令牌
-		if(to.path === '/mine' || to.path === '/shoppingbag') {
+		if (to.path === '/mine' || to.path === '/shoppingbag') {
 			// 不得进入购物车页面和用户页面
 			router.push({
 				name: 'login'
