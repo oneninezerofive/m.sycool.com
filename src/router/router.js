@@ -60,8 +60,8 @@ const routes = [{
 	  component: listpage
 	},
 	{ //详情页
-	  path: '/detapages',
-	  name: 'ddetapages',
+	  path: '/detapages/:id',
+	  name: 'detapages',
 	  component: detapages
 	},
 	{ //重定向

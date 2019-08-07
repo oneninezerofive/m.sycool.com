@@ -11,18 +11,23 @@
     <!-- 内容 -->
     <div>
       <ul data-v-61656187 class="listGoods">
-        <li data-v-61656187 class="listGoods-item" @click="jumpParticulars" v-for="(k,index) in listHas" :key="index">
+        <li data-v-61656187 class="listGoods-item" 
+        @click="jumpParticulars(k._id)" v-for="(k,index) in listHas" 
+        :key="index"
+        :data-id="k._id"
+
+        >
           <a data-v-61656187 href="#">
-            <div data-v-61656187 class="listGoods-imgBox" >
+            <div data-v-61656187 class="listGoods-imgBox">
               <div data-v-61656187 class="listGoods-imgWrp">
-                <img :src="k.gDetailsImgSrc[1]" style="display: block;" width="100%" height="100%" />
+                <img :src="k.imgSrc[0]" style="display: block;" width="100%" height="100%" />
               </div>
             </div>
             <div data-v-61656187 class="listGoods-info">
               <h3 data-v-61656187 class="listGoods-brand">CALVIN KLEIN</h3>
               <p data-v-61656187 class="listGoods-name">{{k.gName}}</p>
               <p data-v-61656187 class="listGoods-price">
-                <span data-v-61656187 class="listGoods-initPrice" >￥{{k.currentPrice}}</span>
+                <span data-v-61656187 class="listGoods-initPrice">￥{{k.currentPrice}}</span>
                 <i data-v-61656187 class="listGoods-decimalPrice"></i>
                 <span data-v-61656187 class="listGoods-priceLabel">
                   <em data-v-61656187>会员价</em>
@@ -55,19 +60,27 @@ export default {
     };
   },
   methods: {
-    jumpParticulars() {
+    jumpParticulars(id) {
       this.$router.push({
-        name: "shoppingcar"
+        name: "detapages",
+        params:{id:id}
       });
     }
   },
   async created() {
-    if (this.$route.params.cla == "1") {
+    if (this.$route.params.cla == "2") {//分类
       let listHas = await this.$axios.get(
         "http://10.3.132.227:12345/goods/brand?gName=" +this.$route.params.name + "&skip=1"
+        
       );
       this.listHas = listHas.data;
-      // console.log(this.listHas[0].imgSrc[0]);
+      
+    }else if(this.$route.params.cla == "1"){//品牌
+       let classify = await this.$axios.get(
+        "http://10.3.132.227:12345/goods/type?type=" +this.$route.params.name + "&skip=1"
+      );
+      this.listHas = classify.data;
+      console.log(this.listHas);
     }
   }
 };
@@ -77,30 +90,27 @@ export default {
 
 
 <style >
-
-.van-dropdown-menu__item{
-position: absolute;
-border: 1px solid #000;
-height: 28px;
-width: 70px;
-top: 0;
-margin-left: 5px;
-margin-right: 5px;
-z-index: 5;
-
+.van-dropdown-menu__item {
+  position: absolute;
+  border: 1px solid #000;
+  height: 28px;
+  width: 70px;
+  top: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+  z-index: 5;
 }
-.van-dropdown-menu__item span{
+.van-dropdown-menu__item span {
   font-size: 12px;
-  
 }
-.box1{
+.box1 {
   border: 1px solid #000;
   left: 100px;
 }
-.box2{
+.box2 {
   left: 200px;
 }
-.box3{
+.box3 {
   left: 300px;
 }
 </style>
