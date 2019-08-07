@@ -6,7 +6,7 @@
 		</van-nav-bar>
 		<!-- 分组1 -->
 		<van-cell-group>
-			<van-cell title="账户" icon="manager-o" :value="this.$store.getters.getusername" is-link />
+			<van-cell title="账户" icon="manager-o" :value="getname" is-link />
 			<van-cell title="订单" icon="orders-o" is-link />
 			<van-cell title="红包, 优惠券" icon="balance-o" is-link />
 		</van-cell-group>
@@ -59,6 +59,11 @@
 			},
 			logout() {
 				
+			}
+		},
+		computed: {
+			getname() {
+				return sessionStorage.getItem('username');
 			}
 		}
 	}

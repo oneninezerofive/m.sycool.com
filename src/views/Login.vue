@@ -102,7 +102,7 @@
 								// this.$store.commit("setusername", res.data.username);
 								sessionStorage.setItem("isLogin", true);
 								sessionStorage.setItem("username", res.data.username);
-								sessionStorage.setItem("username", res.data.uid);
+								sessionStorage.setItem("uid", res.data.uid);
 								alert("登录成功，将跳转回上一页。");
 								this.$router.go(-1);
 							} else {

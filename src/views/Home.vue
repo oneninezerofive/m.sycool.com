@@ -190,7 +190,7 @@
 							// this.$store.commit("setuid", detail._id);
 							// this.$store.commit("setusername", detail.username);
 							sessionStorage.setItem("isLogin", true);
-							sessionStorage.setItem("username", detail.uid);
+							sessionStorage.setItem("uid", detail.uid);
 							sessionStorage.setItem("username", detail.username);
 							console.log("验证成功");
 						} else {

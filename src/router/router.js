@@ -74,14 +74,14 @@ let router = new Router({
 router.beforeEach((to, from, next) => {
 	let token = localStorage.getItem("loginToken");
 	let isLogin = sessionStorage.getItem("isLogin");
-	if(token != undefined) {
+	if (token != undefined) {
 		// 有令牌
-		if(isLogin == undefined) {
+		if (isLogin == undefined) {
 			// 没有登录成功的状态时
 			next();
 		}
 		// 自动登录成功，设置路由
-		if(to.path === '/login') {
+		if (to.path === '/login' && from.name != 'home4') {
 			router.push({
 				name: 'home4'
 			});
@@ -90,7 +90,7 @@ router.beforeEach((to, from, next) => {
 		}
 	} else {
 		// 没有令牌
-		if(to.path === '/mine' || to.path === '/shoppingbag') {
+		if (to.path === '/mine' || to.path === '/shoppingbag') {
 			// 不得进入购物车页面和用户页面
 			router.push({
 				name: 'login'
@@ -99,5 +99,5 @@ router.beforeEach((to, from, next) => {
 			next();
 		}
 	}
-
+});
 export default router;

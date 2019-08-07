@@ -73,19 +73,6 @@
     font-size: .4rem;
 }
 
-.shop_lis .main .btn_box .color {
-    font-size: .35rem;
-    margin-bottom: .426667rem;
-}
-
-.shop_lis .main .btn_box .font {
-    font-size: .4rem;
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
 .shop_lis .main .btn {
     display: flex;
     justify-content: center;
@@ -96,6 +83,10 @@
 .shop_lis .main .price {
     font-size: .5rem;
     font-weight: bold;
+}
+
+.van-checkbox__label {
+	display: block;
 }
 
 .mylike {
