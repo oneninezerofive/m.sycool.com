@@ -44,4 +44,25 @@ router.post('/check', async function(req, res, next) {
 	})
 });
 
+router.post('/admin', async function(req, res, next) {
+	let {
+		admin,
+		password,
+	} = req.body;
+	let results = await find("administrator", {
+		admin: admin,
+		password: password
+	}, 1, 0);
+	if(results.length != 0) {
+		res.json({
+			status: true,
+			admin: results[0].admin
+		})
+	} else {
+		res.json({
+			status: false
+		})
+	}
+})
+
 module.exports = router;

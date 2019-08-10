@@ -61,4 +61,36 @@ router.get('/detail', async function(req, res, next) {
 	res.send(results);
 });
 
+/* 后台管理系统的接口 */
+
+// 查询商品
+router.get('/adminfind', async function(req, res, next) {
+	let params = new Object();
+	if (req.query._id != '') {
+		params._id = objectId(req.query._id);
+	}
+	if (req.query.gName != '') {
+		params.gName = new RegExp(req.query.gName);
+	}
+	if (req.query.type != '') {
+		params.type = new RegExp(req.query.type);
+	}
+	let skip = (req.query.skip - 1) * limit;
+	console.log(params, req.query, limit, skip);
+	let results = await find("goods", params, limit, skip);
+	for (let i of results) {
+		i.imgSrc = i.imgSrc[0];
+	}
+	res.send(results);
+});
+
+router.post('/adminadd', async function(req, res, next) {
+	let params = {
+		username: req.body.addun,
+		password: req.body.pw
+	}
+	let results = await insert("user", params);
+	res.json(results.result);
+});
+
 module.exports = router;

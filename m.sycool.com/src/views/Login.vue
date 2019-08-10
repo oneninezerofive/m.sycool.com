@@ -97,9 +97,6 @@ export default {
           }).then(function (res) {
             if (res.data.status) {
               localStorage.setItem("loginToken", res.data.token);
-              // this.$store.commit("setislogin", true);
-              // this.$store.commit("setuid", res.data._id);
-              // this.$store.commit("setusername", res.data.username);
               sessionStorage.setItem("isLogin", true);
               sessionStorage.setItem("username", res.data.username);
               sessionStorage.setItem("uid", res.data.uid);
