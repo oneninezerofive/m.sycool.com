@@ -111,7 +111,7 @@ export default {
     // }
   },
   async created() {
-    let shop = await this.$axios('http://10.3.132.227:12345/brands/list');
+    let shop = await this.$axios('http://10.3.132.244:12345/brands/list');
     //一排2图数据
     this.shop = shop.data.slice(0, 56);
     //一排三图数据

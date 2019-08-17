@@ -181,7 +181,7 @@ export default {
       active: 2,
       value: 1,
       activeidx: 0,
-	  detail: null,
+	    detail: [],
       listID: "",
       listimg: "",
       listImgs: "",
@@ -222,7 +222,7 @@ export default {
       } else {
         await this.$axios({
           method: "post",
-          url: 'http://10.3.132.227:12345/cart/addorder/',
+          url: 'http://10.3.132.244:12345/cart/addorder/',
           data: this.$qs.stringify({
             uid: uid,
             username: username,
@@ -240,7 +240,7 @@ export default {
     let gid = this.$route.params.id
     //具体商品
     let detail = await this.$axios.get(
-      "http://10.3.132.227:12345/goods/detail?id=" + gid
+      "http://10.3.132.244:12345/goods/detail?id=" + gid
     );
 	this.detail = detail.data[0];
     this.listID = detail.data[0]._id;

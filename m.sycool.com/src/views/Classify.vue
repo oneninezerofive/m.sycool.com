@@ -98,12 +98,12 @@ export default {
   },
   async created() {
     //分类接口
-    let list = await this.$axios('http://10.3.132.227:12345/categorys/list');
+    let list = await this.$axios('http://10.3.132.244:12345/categorys/list');
     this.list = list.data[0].categorys;
     // console.log(list.data[0].categorys)
 
     //品牌接口
-    let remrmber = await this.$axios('http://10.3.132.227:12345/brand/list');
+    let remrmber = await this.$axios('http://10.3.132.244:12345/brand/list');
     this.remember = remrmber.data[0].result.brands;
     // console.log(remrmber.data[0].result.brands);
   }

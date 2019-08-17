@@ -73,7 +73,7 @@
 				})
 			},
 			async delorder(oid) {
-				let res = await this.$axios("http://10.3.132.227:12345/cart/del?oid=" + oid);
+				let res = await this.$axios("http://10.3.132.244:12345/cart/del?oid=" + oid);
 				this.$router.push({
 					name: 'home3'
 				})
@@ -82,13 +82,13 @@
 		async created() {
 			//购物车信息
 			let uid = sessionStorage.getItem("uid");
-			let mycar = await this.$axios('http://10.3.132.227:12345/cart?uid=' + uid);
+			let mycar = await this.$axios('http://10.3.132.244:12345/cart?uid=' + uid);
 			this.mycar = mycar.data;
 			if (this.mycar.length != 0) {
 				this.bool = true;
 			}
 			//猜你喜欢数据
-			let mylike = await this.$axios('http://10.3.132.227:12345/goods/type?type=单肩包&skip=0');
+			let mylike = await this.$axios('http://10.3.132.244:12345/goods/type?type=单肩包&skip=0');
 			this.mylike = mylike.data;
 		}
 	}

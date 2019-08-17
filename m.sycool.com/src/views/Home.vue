@@ -179,7 +179,7 @@
 					// 未登录，有令牌
 					this.$axios({
 						method: 'post',
-						url: "http://10.3.132.227:12345/login/check",
+						url: "http://10.3.132.244:12345/login/check",
 						data: this.$qs.stringify({
 							token: token
 						})
@@ -211,7 +211,7 @@
 		},
 
 		async created() {
-			let playlist = await this.$axios('http://10.3.132.227:12345/home/floors');
+			let playlist = await this.$axios('http://10.3.132.244:12345/home/floors');
 			//轮播图数据
 			this.playlist = playlist.data[0].floors[0].list;
 			var images = [];

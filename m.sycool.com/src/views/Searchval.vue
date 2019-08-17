@@ -76,7 +76,7 @@ export default {
   },
   async created() {
     //猜你喜欢数据
-    let mylike = await this.$axios('http://10.3.132.227:12345/goods/type?type=欧米茄&skip=2');
+    let mylike = await this.$axios('http://10.3.132.244:12345/goods/type?type=欧米茄&skip=2');
     this.mylike = mylike.data
   }
 }

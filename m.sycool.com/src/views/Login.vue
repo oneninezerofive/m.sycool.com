@@ -15,7 +15,9 @@
         </van-button>
       </van-field>
     </van-cell-group>
-    <van-button type="primary" size="large" @click="userlogin">登录</van-button>
+    <div class="login-btn">
+      <van-button type="primary" size="large" @click="userlogin">登录</van-button>
+    </div>
     <div class="plus-options">
       <span @click="change">{{text.changedes[status]}}</span>
       <span>{{text.plusdes[status]}}</span>
@@ -89,18 +91,17 @@ export default {
           // 账号密码登录
           this.$axios({
             method: 'post',
-            url: "http://10.3.132.227:12345/login",
+            url: "http://10.3.132.244:12345/login",
             data: this.$qs.stringify({
               username: this.username,
               password: this.password
             })
-          }).then(function (res) {
+          }).then((res) => {
             if (res.data.status) {
               localStorage.setItem("loginToken", res.data.token);
               sessionStorage.setItem("isLogin", true);
               sessionStorage.setItem("username", res.data.username);
               sessionStorage.setItem("uid", res.data.uid);
-              alert("登录成功，将跳转回个人中心。");
               this.$router.push({
                 name: 'home4'
               });
@@ -156,7 +157,12 @@ export default {
   margin: 0.266667rem;
 }
 
+.login-btn {
+  text-align: center;
+}
+
 .plus-options {
+  padding: .3rem 0;
   display: flex;
   justify-content: space-between;
 }
@@ -169,6 +175,7 @@ export default {
 
 .third-party {
   margin-top: 0.533333rem;
+  padding-bottom: .5rem;
   display: flex;
   justify-content: space-around;
   text-align: center;

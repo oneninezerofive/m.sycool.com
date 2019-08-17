@@ -80,14 +80,14 @@
 					//分类->品牌选项
 
 					let list = await this.$axios.get(
-						"http://10.3.132.227:12345/goods/brand?gName=" + this.$route.params.name + "&skip=" + this.num
+						"http://10.3.132.244:12345/goods/brand?gName=" + this.$route.params.name + "&skip=" + this.num
 					);
 					this.list = [...this.list, ...list.data]
 					this.loading = false;
 				} else if (this.$route.params.cla == '1') {
 					//分类->分类选项
 
-					let classify = await this.$axios('http://10.3.132.227:12345/goods/type?type=' + this.$route.params.name +
+					let classify = await this.$axios('http://10.3.132.244:12345/goods/type?type=' + this.$route.params.name +
 						"&skip=" + this.num);
 					this.list = [...this.list, ...classify.data];
 					this.loading = false;
